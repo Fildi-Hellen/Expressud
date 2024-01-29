@@ -15,6 +15,12 @@ import { HeaderComponent } from './components/header/header.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { ProductComponent } from './components/product/product.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ResturantsComponent } from './shared/resturants/resturants.component';
+import { BusComponent } from './shared/bus/bus.component';
+import { RealEstatesComponent } from './shared/real-estates/real-estates.component';
+import { PharmacyComponent } from './shared/pharmacy/pharmacy.component';
+import { GroceryComponent } from './shared/grocery/grocery.component';
 
 
 @NgModule({
@@ -31,13 +37,19 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     ProductComponent,
     NavbarComponent,
     AboutUsComponent,
-    FooterComponent
+    FooterComponent,
+    ResturantsComponent,
+    BusComponent,
+    RealEstatesComponent,
+    PharmacyComponent,
+    GroceryComponent
 
   ],
 
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

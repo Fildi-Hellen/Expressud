@@ -12,6 +12,11 @@ import { InstagramComponent } from './components/instagram/instagram.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { HeaderComponent } from './components/header/header.component';
+import { BusComponent } from './shared/bus/bus.component';
+import { GroceryComponent } from './shared/grocery/grocery.component';
+import { PharmacyComponent } from './shared/pharmacy/pharmacy.component';
+import { RealEstatesComponent } from './shared/real-estates/real-estates.component';
+import { ResturantsComponent } from './shared/resturants/resturants.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -26,7 +31,12 @@ const routes: Routes = [
   {path:'instagram',component:InstagramComponent},
   {path:'banner',component:BannerComponent},
   {path:'categories',component:CategoriesComponent},
-  {path:'header',component:HeaderComponent}
+  {path:'header',component:HeaderComponent},
+  {path:'bus',component:BusComponent},
+  {path:'grocery',component:GroceryComponent},
+  {path:'pharmacy',component:PharmacyComponent},
+  {path:'real-estates',component:RealEstatesComponent},
+  {path:'resturants',component:ResturantsComponent}
 ];
 
 @NgModule({
