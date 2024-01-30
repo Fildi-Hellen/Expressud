@@ -1,0 +1,8 @@
+.blog__item__text:hover {
+    transform: scale(1.2); /* Increase the scale on hover to make it bigger */
+    cursor: pointer;
+}
+.blog__item__text{
+    transition: transform 0.3s ease-in-out;
+
+}

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import  {HomeComponent} from './components/home/home.component';
@@ -21,6 +21,10 @@ import { BusComponent } from './shared/bus/bus.component';
 import { RealEstatesComponent } from './shared/real-estates/real-estates.component';
 import { PharmacyComponent } from './shared/pharmacy/pharmacy.component';
 import { GroceryComponent } from './shared/grocery/grocery.component';
+import {VgCoreModule} from '@videogular/ngx-videogular/core';
+import {VgControlsModule} from '@videogular/ngx-videogular/controls';
+import {VgOverlayPlayModule} from '@videogular/ngx-videogular/overlay-play';
+import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
 
 
 @NgModule({
@@ -49,7 +53,12 @@ import { GroceryComponent } from './shared/grocery/grocery.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
