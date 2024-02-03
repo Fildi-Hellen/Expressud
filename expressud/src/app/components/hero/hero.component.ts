@@ -7,18 +7,25 @@ declare var $: any;
   styleUrls: ['./hero.component.css']
   
 })
-export class HeroComponent implements OnInit, AfterViewInit{
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
-  @ViewChild('carousel')
-  carousel!: ElementRef;
+export class HeroComponent {
+  slides = [
+    {img: "assets/img/mobile.webp"},
+    {img: "assets/img/fast.jpg"},
+    {img: "assets/img/blog/bike.jpg"}
+  ];
+  slideConfig = {"slidesToShow": 1, "slidesToScroll": 1};
 
-  ngAfterViewInit() {
-    this.activateCarousel();
-  }
+  // ngOnInit(): void {
+  //   throw new Error('Method not implemented.');
+  // }
+  // @ViewChild('carousel')
+  // carousel!: ElementRef;
 
-  activateCarousel() {
-    $(this.carousel.nativeElement).carousel(); // Initialize the carousel using jQuery
-  }
+  // ngAfterViewInit() {
+  //   this.activateCarousel();
+  // }
+
+  // activateCarousel() {
+  //   $(this.carousel.nativeElement).carousel(); // Initialize the carousel using jQuery
+  // }
 }

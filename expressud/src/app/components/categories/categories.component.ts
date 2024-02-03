@@ -1,8 +1,5 @@
-import { Component,ElementRef,HostListener, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
-import {VgApiService} from '@videogular/ngx-videogular/core';
-
-
 
 @Component({
   selector: 'app-categories',
@@ -21,13 +18,15 @@ import {VgApiService} from '@videogular/ngx-videogular/core';
         animate('2.5s ease-in-out', style({ transform: 'translateX(0)' })),
       ]),
     ]),
-  ]
-
+  ],
 })
-export class CategoriesComponent {
+export class CategoriesComponent implements AfterViewInit, OnDestroy {
 
   slideFromLeftState: string = 'hidden';
   slideFromRightState: string = 'hidden';
+  @ViewChild('videoPlayer', { static: false }) videoPlayer!: ElementRef<HTMLVideoElement>;
+
+  private intersectionObserver: IntersectionObserver | undefined;
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -35,9 +34,20 @@ export class CategoriesComponent {
     this.checkElementVisibility();
   }
 
+  ngAfterViewInit() {
+    this.initializeVideo();
+  }
+
+  ngOnDestroy() {
+    // Clean up the IntersectionObserver when the component is destroyed
+    if (this.intersectionObserver) {
+      this.intersectionObserver.disconnect();
+    }
+  }
+
   checkElementVisibility() {
-    const categoriesTextElement = document.querySelector('.categories__text')as HTMLElement;
-    const categoriesCountdownElement = document.querySelector('.categories__deal__countdown')as HTMLElement;
+    const categoriesTextElement = document.querySelector('.categories__text') as HTMLElement;
+    const categoriesCountdownElement = document.querySelector('.categories__deal__countdown') as HTMLElement;
 
     if (this.isElementInViewport(categoriesTextElement)) {
       this.slideFromLeftState = 'visible';
@@ -61,29 +71,40 @@ export class CategoriesComponent {
       rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
   }
-  @ViewChild('myVideo')
-  myVideo!: ElementRef<HTMLVideoElement>;
-  
 
-  preload: string = 'auto';
-  // api: VgApiService = new VgApiService ;
+  initializeVideo() {
+    // Set up the IntersectionObserver
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5, // Adjust this threshold as needed
+    };
 
-  constructor(private api: VgApiService) {}
-  
+    this.intersectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // If the video is in the viewport, play it
+          this.playVideo();
+        } else {
+          // If the video is not in the viewport, pause it
+          this.pauseVideo();
+        }
+      });
+    }, options);
 
- 
-
-  onPlayerReady(api: VgApiService) {
-      this.api = api;
-      this.api.getDefaultMedia().subscriptions.loadedMetadata.subscribe(
-       this.autoplay.bind(this)
-    );
-   }
-   autoplay(){
-    this.api.play();
-   }
+    // Observe the video element
+    if (this.videoPlayer.nativeElement) {
+      this.intersectionObserver.observe(this.videoPlayer.nativeElement);
+    }
   }
-  
 
-    
+  playVideo() {
+    const video = this.videoPlayer.nativeElement;
+    video.play();
+  }
 
+  pauseVideo() {
+    const video = this.videoPlayer.nativeElement;
+    video.pause();
+  }
+}

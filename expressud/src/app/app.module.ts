@@ -21,10 +21,11 @@ import { BusComponent } from './shared/bus/bus.component';
 import { RealEstatesComponent } from './shared/real-estates/real-estates.component';
 import { PharmacyComponent } from './shared/pharmacy/pharmacy.component';
 import { GroceryComponent } from './shared/grocery/grocery.component';
-import {VgCoreModule} from '@videogular/ngx-videogular/core';
-import {VgControlsModule} from '@videogular/ngx-videogular/controls';
-import {VgOverlayPlayModule} from '@videogular/ngx-videogular/overlay-play';
-import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
+
+// import {VgCoreModule} from '@videogular/ngx-videogular/core';
+// import {VgControlsModule} from '@videogular/ngx-videogular/controls';
+// import {VgOverlayPlayModule} from '@videogular/ngx-videogular/overlay-play';
+// import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
 
 
 @NgModule({
@@ -54,11 +55,12 @@ import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    BrowserAnimationsModule,
-    VgCoreModule,
-    VgControlsModule,
-    VgOverlayPlayModule,
-    VgBufferingModule
+    BrowserAnimationsModule,  
+      // SlickCarouselModule
+    // VgCoreModule,
+    // VgControlsModule,
+    // VgOverlayPlayModule,
+    //  VgBufferingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
