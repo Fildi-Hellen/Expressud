@@ -17,6 +17,8 @@ import { GroceryComponent } from './shared/grocery/grocery.component';
 import { PharmacyComponent } from './shared/pharmacy/pharmacy.component';
 import { RealEstatesComponent } from './shared/real-estates/real-estates.component';
 import { ResturantsComponent } from './shared/resturants/resturants.component';
+import { FaqComponent } from './help/faq/faq.component';
+import { PrivacyPolicyComponent } from './help/privacy-policy/privacy-policy.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -36,7 +38,9 @@ const routes: Routes = [
   {path:'grocery',component:GroceryComponent},
   {path:'pharmacy',component:PharmacyComponent},
   {path:'real-estates',component:RealEstatesComponent},
-  {path:'resturants',component:ResturantsComponent}
+  {path:'resturants',component:ResturantsComponent},
+  {path:'faq',component:FaqComponent},
+  {path:'privacy-policy',component:PrivacyPolicyComponent}
 ];
 
 @NgModule({

@@ -9,15 +9,36 @@
             </div>
             <div class="col-lg-4">
                 <div class="categories__hot__deal">
-                     
-                        <video #videoPlayer preload="auto" crossorigin muted style="height: auto;width: 100%;">
+                    <vg-player (onPlayerReady)="onPlayerReady($event)">
+                        <vg-overlay-play></vg-overlay-play>
+                        <vg-buffering></vg-buffering>
+                    
+                        <vg-controls>
+                            <vg-play-pause></vg-play-pause>
+                            <vg-playback-button></vg-playback-button>
+                    
+                            <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+                    
+                            <vg-scrub-bar>
+                                <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                                <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+                            </vg-scrub-bar>
+                    
+                            <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
+                            <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+                    
+                            <vg-track-selector></vg-track-selector>
+                            <vg-mute></vg-mute>
+                            <vg-volume></vg-volume>
+                    
+                            <vg-fullscreen></vg-fullscreen>
+                        </vg-controls>
+                    
+                        <video [vgMedia]="$any(media)" #media id="singleVideo" preload="auto" crossorigin autoplay muted>
                             <source src="assets/img/vid.mp4" type="video/mp4">
                         </video>
-<!--                     
-                    <div class="hot__deal__sticker">
-                        <span>Sale Of</span>
-                        <h5>$29.99</h5>
-                    </div> -->
+                    </vg-player>
+                   
                 </div>
             </div>
             <div class="col-lg-4 offset-lg-1">

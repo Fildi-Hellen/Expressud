@@ -1,7 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import  {HomeComponent} from './components/home/home.component';
 import { ContactComponent } from './components/contact/contact.component';
@@ -15,17 +12,26 @@ import { HeaderComponent } from './components/header/header.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { ProductComponent } from './components/product/product.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ResturantsComponent } from './shared/resturants/resturants.component';
 import { BusComponent } from './shared/bus/bus.component';
 import { RealEstatesComponent } from './shared/real-estates/real-estates.component';
 import { PharmacyComponent } from './shared/pharmacy/pharmacy.component';
 import { GroceryComponent } from './shared/grocery/grocery.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http'; 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {VgCoreModule} from '@videogular/ngx-videogular/core';
+import {VgControlsModule} from '@videogular/ngx-videogular/controls';
+import {VgOverlayPlayModule} from '@videogular/ngx-videogular/overlay-play';
+import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { FaqComponent } from './help/faq/faq.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { PrivacyPolicyComponent } from './help/privacy-policy/privacy-policy.component';
 
-// import {VgCoreModule} from '@videogular/ngx-videogular/core';
-// import {VgControlsModule} from '@videogular/ngx-videogular/controls';
-// import {VgOverlayPlayModule} from '@videogular/ngx-videogular/overlay-play';
-// import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
 
 
 @NgModule({
@@ -47,22 +53,29 @@ import { GroceryComponent } from './shared/grocery/grocery.component';
     BusComponent,
     RealEstatesComponent,
     PharmacyComponent,
-    GroceryComponent
+    GroceryComponent,
+    FaqComponent,
+    PrivacyPolicyComponent
 
   ],
 
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NgbModule,
-    BrowserAnimationsModule,  
-      // SlickCarouselModule
-    // VgCoreModule,
-    // VgControlsModule,
-    // VgOverlayPlayModule,
-    //  VgBufferingModule
+     BrowserModule,
+     NgbModule,
+     BrowserModule,
+     AppRoutingModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+     VgBufferingModule,
+     SlickCarouselModule,
+     HttpClientModule,
+     BrowserAnimationsModule,
+     MatExpansionModule
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

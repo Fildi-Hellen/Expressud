@@ -1,0 +1,12 @@
+/* faq.component.css */
+
+h1 {
+    text-align: center; /* Move the h1 element to the center */
+    font-family: Arial, sans-serif; /* Set font family for the h1 element */
+    margin-bottom: 20px; /* Add some bottom margin to create space */
+  }
+  
+  mat-accordion {
+    font-family: Arial, sans-serif; /* Set font family for the accordion */
+    padding: 20px; /* Add padding around the accordion */
+  }

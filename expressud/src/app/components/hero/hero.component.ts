@@ -1,31 +1,31 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-declare var $: any;
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { SlickCarouselComponent } from 'ngx-slick-carousel';
 
 @Component({
   selector: 'app-hero',
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.css']
-  
 })
-export class HeroComponent {
+export class HeroComponent implements AfterViewInit {
+  @ViewChild(SlickCarouselComponent) slickModal: SlickCarouselComponent | undefined;
+
   slides = [
-    {img: "assets/img/mobile.webp"},
-    {img: "assets/img/fast.jpg"},
-    {img: "assets/img/blog/bike.jpg"}
+    { img: "assets/img/mobile.webp" },
+    { img: "assets/img/fast.jpg" },
+    { img: "assets/img/home.jpeg" },
+    {img: "assets/img/venue.jpg"}
   ];
-  slideConfig = {"slidesToShow": 1, "slidesToScroll": 1};
 
-  // ngOnInit(): void {
-  //   throw new Error('Method not implemented.');
-  // }
-  // @ViewChild('carousel')
-  // carousel!: ElementRef;
+  slideConfig = {
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000
+  };
 
-  // ngAfterViewInit() {
-  //   this.activateCarousel();
-  // }
-
-  // activateCarousel() {
-  //   $(this.carousel.nativeElement).carousel(); // Initialize the carousel using jQuery
-  // }
+  ngAfterViewInit() {
+    if (this.slickModal) {
+      // this.slickModal.slickInit();
+    }
+  }
 }

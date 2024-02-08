@@ -1,5 +1,7 @@
 import { Component, ElementRef, HostListener, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
+import {VgApiService} from '@videogular/ngx-videogular/core';
+
 
 @Component({
   selector: 'app-categories',
@@ -21,10 +23,17 @@ import { trigger, style, animate, transition } from '@angular/animations';
   ],
 })
 export class CategoriesComponent implements AfterViewInit, OnDestroy {
+  ngAfterViewInit(): void {
+    this.autoplay();
+  }
 
   slideFromLeftState: string = 'hidden';
   slideFromRightState: string = 'hidden';
-  @ViewChild('videoPlayer', { static: false }) videoPlayer!: ElementRef<HTMLVideoElement>;
+  @ViewChild('media') media: any; videoPlayer!: ElementRef<HTMLVideoElement>;
+  
+  ngOnInit(){
+    this.autoplay();
+  }
 
   private intersectionObserver: IntersectionObserver | undefined;
 
@@ -34,9 +43,9 @@ export class CategoriesComponent implements AfterViewInit, OnDestroy {
     this.checkElementVisibility();
   }
 
-  ngAfterViewInit() {
-    this.initializeVideo();
-  }
+  // ngAfterViewInit() {
+  //   this.initializeVideo();
+  // }
 
   ngOnDestroy() {
     // Clean up the IntersectionObserver when the component is destroyed
@@ -72,39 +81,19 @@ export class CategoriesComponent implements AfterViewInit, OnDestroy {
     );
   }
 
-  initializeVideo() {
-    // Set up the IntersectionObserver
-    const options = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.5, // Adjust this threshold as needed
-    };
+  preload: string = 'auto';
+  api: VgApiService = new VgApiService;
+ 
+  onPlayerReady(source: VgApiService) {
+      this.api = source;
+  
+  this.api.getDefaultMedia().subscriptions.loadedMetadata.subscribe(
+    this.autoplay.bind(this)
+)}
 
-    this.intersectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          // If the video is in the viewport, play it
-          this.playVideo();
-        } else {
-          // If the video is not in the viewport, pause it
-          this.pauseVideo();
-        }
-      });
-    }, options);
-
-    // Observe the video element
-    if (this.videoPlayer.nativeElement) {
-      this.intersectionObserver.observe(this.videoPlayer.nativeElement);
-    }
-  }
-
-  playVideo() {
-    const video = this.videoPlayer.nativeElement;
-    video.play();
-  }
-
-  pauseVideo() {
-    const video = this.videoPlayer.nativeElement;
-    video.pause();
-  }
+autoplay(){
+  this.api.play();
 }
+
+}
+
