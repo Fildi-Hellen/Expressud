@@ -19,11 +19,16 @@ import { RealEstatesComponent } from './shared/real-estates/real-estates.compone
 import { ResturantsComponent } from './shared/resturants/resturants.component';
 import { FaqComponent } from './help/faq/faq.component';
 import { PrivacyPolicyComponent } from './help/privacy-policy/privacy-policy.component';
+import { LayoutComponent } from './components/contact/layout/layout.component';
+import { DashboardComponent } from './components/contact/dashboard/dashboard.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
   {path:'home',component:HomeComponent},
   {path:'contact',component:ContactComponent},
+  {path:'',redirectTo:'contact',pathMatch:'full'},
+  {path:'',component:LayoutComponent, children:[{path:'dashboard',component:DashboardComponent}]},
+  {path:'**', component:ContactComponent},
   {path:'navbar',component:NavbarComponent},
   {path:'about-us',component:AboutUsComponent},
   {path:'footer',component:FooterComponent},
