@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import  {HomeComponent} from './components/home/home.component';
-import { ContactComponent } from './components/contact/contact.component';
+// import { ContactComponent } from './components/contact/contact.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { InstagramComponent } from './components/instagram/instagram.component';
-import { AboutUsComponent } from './components/about-us/about-us.component';
+// import { AboutUsComponent } from './components/about-us/about-us.component';
+// import { ContactModule } from './modules/contact/contact.module';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { BannerComponent } from './components/banner/banner.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -13,7 +16,7 @@ import { HeroComponent } from './components/hero/hero.component';
 import { ProductComponent } from './components/product/product.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ResturantsComponent } from './shared/resturants/resturants.component';
-import { BusComponent } from './shared/bus/bus.component';
+import { BusComponent } from './shared/courier/bus/bus.component';
 import { RealEstatesComponent } from './shared/real-estates/real-estates.component';
 import { PharmacyComponent } from './shared/pharmacy/pharmacy.component';
 import { GroceryComponent } from './shared/grocery/grocery.component';
@@ -31,6 +34,17 @@ import { FaqComponent } from './help/faq/faq.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { PrivacyPolicyComponent } from './help/privacy-policy/privacy-policy.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { ContactService } from './contact.service';
+import { IonicModule } from '@ionic/angular';
+import { AboutUsComponent } from './about/about-us/about-us.component';
+import { AboutUsContentComponent } from './about/about-us-content/about-us-content.component';
+import { AboutUsDescriptionComponent } from './about/about-us-description/about-us-description.component';
+import { AboutUsTitleComponent } from './about/about-us-title/about-us-title.component';
+import { FormComponent } from './shared/courier/form/form.component';
+import { ServiceSectionComponent } from './shared/courier/service-section/service-section.component';
+import { HeroCourierComponent } from './shared/courier/hero-courier/hero-courier.component';
 
 
 
@@ -43,11 +57,9 @@ import { PrivacyPolicyComponent } from './help/privacy-policy/privacy-policy.com
     BannerComponent,
     BlogComponent,
     CategoriesComponent,
-    ContactComponent,
     InstagramComponent,
     ProductComponent,
     NavbarComponent,
-    AboutUsComponent,
     FooterComponent,
     ResturantsComponent,
     BusComponent,
@@ -55,7 +67,15 @@ import { PrivacyPolicyComponent } from './help/privacy-policy/privacy-policy.com
     PharmacyComponent,
     GroceryComponent,
     FaqComponent,
-    PrivacyPolicyComponent
+    PrivacyPolicyComponent,
+   ContactComponent,
+   AboutUsComponent,
+   AboutUsContentComponent,
+   AboutUsDescriptionComponent,
+   AboutUsTitleComponent,
+   FormComponent,
+   ServiceSectionComponent,
+  HeroCourierComponent
 
   ],
 
@@ -71,10 +91,18 @@ import { PrivacyPolicyComponent } from './help/privacy-policy/privacy-policy.com
      SlickCarouselModule,
      HttpClientModule,
      BrowserAnimationsModule,
-     MatExpansionModule
+     MatExpansionModule,
+     FontAwesomeModule,
+     ReactiveFormsModule,
+     FormsModule,
+     IonicModule.forRoot()
+     
+    
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    ContactService,
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
   bootstrap: [AppComponent]
 })

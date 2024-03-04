@@ -1,85 +1,148 @@
-body {
-    background-color: #f5d5dc !important;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  }
+.contact{background-color: gray}
   
-  .contact-form-wrapper {
-    padding: 100px 0;
+  .contact .container {
+    display: grid;
+    gap: 48px;
+
   }
+  label{color: black;font: bold 500;}
   
   .contact-form {
-    padding: 30px 40px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    max-width: 800px;
+    background-color: white;
+    padding: 25px;
+    border-radius: 20px;
+  }
+  #contact-label{text-transform: uppercase;font-family: serif; padding: 5px;}
+  
+  .contact-text { margin-block: 5px 30px; }
+  
+  .contact .label { margin-block-end: 8px; }
+
+  .input-field {
+    padding: 10px 12px;
+    border: 1px solid black;
+    margin-block-end: 24px;
+    outline: none;
+    border-radius: 10px;
+    transition: box-shadow var(--transition-1);
+  }
+  .item-icon{background-color: royalblue;border-radius: 20px;}
+  .input-field:focus { box-shadow: inset 0 0 0 1px var(--jet); }
+   
+  
+  .error-message {
+    color: red;
+    font-size: 1.5rem;
+    margin-top: 4px;
+  }
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+    max-height: 150px;
   }
   
-  .contact-form textarea {
-    resize: none;
+  
+  .contact-list .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  .contact-item address,a{font-size: 20px;}
+  
+  .contact-list .contact-item:not(:last-child) { margin-block-end: 35px; }
+  
+  .contact-list .item-icon {
+    color: var(--jet);
+    width: 55px;
+    height: 55px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
   }
   
-  .contact-form .form-input,
-  .form-text-area {
-    background-color: #f0f4f5;
-    height: 50px;
-    padding-left: 16px;
-  }
+  .contact-list .item-icon ion-icon { font-size: 2.5rem; }
   
-  .contact-form .form-text-area {
-    background-color: #f0f4f5;
-    height: auto;
-    padding-left: 16px;
-  }
-  
-  .contact-form .form-control::placeholder {
-    color: #aeb4b9;
-    font-weight: 500;
-    opacity: 2;
-  }
-  
-  .contact-form .form-control:-ms-input-placeholder {
-    color: #aeb4b9;
-    font-weight: 500;
-  }
-  
-  .contact-form .form-control::-ms-input-placeholder {
-    color: #aeb4b9;
-    font-weight: 500;
-  }
-  
-  .contact-form .form-control:focus {
-    border-color: #f33fb0;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.07), 0 0 8px #f33fb0;
-  }
-  
-  .contact-form .title {
-    text-align: center;
-    font-size: 35px;
-    font-weight: 500;
-  }
-  
-  .contact-form .description {
-    color: #666a6d;
-    font-size: 20px;
-    text-align: center;
-  }
-  
-  .contact-form .submit-button-wrapper {
-    text-align: center;
-  }
-  
-  .contact-form .submit-button-wrapper input {
-    border: none;
-    border-radius: 4px;
-    background-color: #f23292;
-    color: white;
+  .contact .label-lg {
+    color: var(--white_a80);
     text-transform: uppercase;
-    padding: 10px 60px;
-    font-weight: 500;
     letter-spacing: 2px;
+    font-weight: var(--fw-400);
+    margin-block-end: 5px;
   }
   
-  .contact-form .submit-button-wrapper input:hover {
-    background-color: #d30069;
+  .contact .body-lg {
+    color: var(--white);
+    word-break: break-all;
+  }
+  .info{
+    text-align: center;
+    text-transform: uppercase;
+    padding: 20px;
+    color: black;
+    font: serif 400 bold;
+    font-family: serif; 
+
   }
   
+  input{font-family: 'Noto Sans', sans-serif;
+  }
+  
+  .tem {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    padding: 10px ;
+    
+  }
+  
+  .tem ion-icon {
+    margin-right: 20px; 
+    font-size: 30px;
+    
+  }
+  
+  button { cursor: pointer; }
+  .contact-content{background-color: white; border-radius: 20px;}
+  
+  .title-lg{font-size: 3rem;
+    font-family: serif;
+    font-weight: 700;}
+
+    
+  
+  @keyframes fly-1 {
+    from {
+      transform: translateY(0.1em);
+    }
+  
+    to {
+      transform: translateY(-0.1em);
+    }
+  }
+  
+  
+  @media (min-width: 768px) {
+  
+    .contact-form { padding: 35px; }
+  
+    .wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+  
+  }
+  
+  @media (min-width: 992px) {
+  
+    .contact .container {
+      grid-template-columns: 1fr 0.9fr;
+      align-items: center;
+      gap: 20px;
+    }
+  
+    .contact-content {
+      width: 70%;
+      margin-inline: auto;
+    }
+  }
