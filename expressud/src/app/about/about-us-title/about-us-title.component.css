@@ -2,6 +2,7 @@
 .about .container {
     display: grid;
     gap: 50px;
+    justify-content: space-between;
    
   }
   
@@ -31,8 +32,8 @@
     gap: 15px 25px;
   }
   .about-banner img{
-    border-radius: 25px;
-    width: 80vh;
+    border-radius: 2px;
+    width: 60vh;
     height: 50vh;
   }
   .wrapper{

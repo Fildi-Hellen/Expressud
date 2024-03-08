@@ -15,7 +15,6 @@ import { BusComponent } from './shared/courier/bus/bus.component';
 import { GroceryComponent } from './shared/grocery/grocery.component';
 import { PharmacyComponent } from './shared/pharmacy/pharmacy.component';
 import { RealEstatesComponent } from './shared/real-estates/real-estates.component';
-import { ResturantsComponent } from './shared/resturants/resturants.component';
 import { FaqComponent } from './help/faq/faq.component';
 import { PrivacyPolicyComponent } from './help/privacy-policy/privacy-policy.component';
 import { AboutUsComponent } from './about/about-us/about-us.component';
@@ -25,6 +24,11 @@ import { AboutUsDescriptionComponent } from './about/about-us-description/about-
 import { ServiceSectionComponent } from './shared/courier/service-section/service-section.component';
 import { FormComponent } from './shared/courier/form/form.component';
 import { HeroCourierComponent } from './shared/courier/hero-courier/hero-courier.component';
+import { ResturantsComponent } from './food/resturants/resturants.component';
+import { CartPageComponent } from './food/cart-page/cart-page.component';
+import { FoodPageComponent } from './food/food-page/food-page.component';
+import { NotFoundComponent } from './food/not-found/not-found.component';
+
 
 
 const routes: Routes = [
@@ -44,7 +48,6 @@ const routes: Routes = [
   {path:'grocery',component:GroceryComponent},
   {path:'pharmacy',component:PharmacyComponent},
   {path:'real-estates',component:RealEstatesComponent},
-  {path:'resturants',component:ResturantsComponent},
   {path:'faq',component:FaqComponent},
   {path:'privacy-policy',component:PrivacyPolicyComponent},
   {path:'about-us',component:AboutUsComponent},
@@ -53,7 +56,14 @@ const routes: Routes = [
   {path:'about-us-description',component:AboutUsDescriptionComponent},
   {path:'hero-courier',component:HeroCourierComponent},
   {path:'service-section',component:ServiceSectionComponent},
-  {path:'form',component:FormComponent}
+  {path:'form',component:FormComponent},
+  {path:'search/:searchTerm', component:ResturantsComponent},
+  {path:'tag/:tag', component:ResturantsComponent},
+  {path:'cart-page',component:CartPageComponent},
+  {path:'not-found',component:NotFoundComponent},
+  {path:'lists/id',component:FoodPageComponent},
+  {path:'resturants',component:ResturantsComponent}
+  // { path: 'featured', loadChildren: () => import('./routes/featured/featured.module').then(m => m.FeaturedModule) }
 ];
 
 @NgModule({
