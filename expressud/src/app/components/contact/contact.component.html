@@ -1,110 +1,134 @@
-<main>
-    <article>
-    
-      <section class="section contact has-bg-image" aria-labelledby="contact-label  " >
-        <div class="container">
 
-          <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="submitForm()">
-            <h1 class="headline-sm" id="contact-label">Send us your Message</h1>
-          
-            <div class="wrapper">
-                  <div >
-                    <label for="name" class="label">Full Name</label>
-                    <input type="text" name="name" id="name" formControlName="name" placeholder="Eg. Fildi Hellen *" required class="input-field">
-                    <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
-                      <p class="error-message">Name is required.</p>
-                    </div>
-                  </div>
-              
-                  <div >
-                    <label for="email" class="label">Your Email</label>
-                    <input type="email" name="email" id="email" formControlName="email" placeholder="Eg. intysilva@gmail.com *" required class="input-field">
-                    <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
-                      <p class="error-message">Email is required.</p>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <label for="subject" class="label">Subject</label>
-                  <input type="text" name="subject" id="subject" formControlName="subject" placeholder="Subject *" required class="input-field ">
-                  <div *ngIf="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched">
-                    <p class="error-message">Subject is required.</p>
-                  </div>
-                </div>
-          
-              <div>
-                <label for="message" class="label">Your message</label>
-                <textarea name="message" id="message" formControlName="message" placeholder="Your message *" required class="input-field "></textarea>
-                <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">
-                  <p class="error-message">Message is required.</p>
-                </div>
-              </div>
-          
-            <button type="submit" id="btn">Send</button>
-            
-           <p *ngIf="messageReceived" class="info">Your message is received. Thank you!</p>
-          </form>
-    
-          <div class="contact-content">
-            <p class="info">Contact Information</p>
-
-            <ul class="contact-list">
-
-              <li class="contact-item">
-
-                <div class="item-icon" style="background-color:blue">
-                  <ion-icon name="call-outline"></ion-icon>
-                </div>
-
-                <div>
-                  <p class="label-lg" style="color: white;">Phone</p>
-
-                  <a href="tel:+212644377779" class="body-lg" style="color: black;">+212644377779</a>
-                </div>
-
-              </li>
-
-              <li class="contact-item">
-
-                <div class="item-icon"style="background-color:blue" >
-                  <ion-icon name="mail" aria-hidden="true"></ion-icon>
-                </div>
-
-                <div>
-                  <p class="label-lg" style="color: white;">Mail</p>
-
-                  <a href="tel:intysilva1@gmail.com" class="body-lg" style="color: black;">info</a>
-                </div>
-
-              </li>
-
-              <li class="contact-item">
-
-                <div class="item-icon" style="background-color: blue">
-                  <ion-icon name="location" aria-hidden="true"></ion-icon>
-                </div>
-
-                <div>
-                  <p class="label-lg" style="color: white;">Adresse</p>
-
-                  <address class="body-lg" style="color: black;">
-                    Juba,
-                    South Sudan
-                  </address>
-                </div>
-
-              </li>
-            </ul>
-            <div class="tem">
-              <ion-icon name="logo-twitter"></ion-icon>
-            <ion-icon name="logo-linkedin"></ion-icon>
-            <ion-icon name="logo-instagram"></ion-icon>
-          </div>
-          </div>
-
-        </div>
-      </section>
-    </article>
+  
    
 
-  </main>
+<section class="contact">
+  <div class="content">
+    <h2>Contact Us</h2>
+    <p>Expressud, an innovative e-commerce and on-demand delivery service headquartered in the vibrant city of Juba, South Sudan, welcomes your inquiries . </p>
+  </div>
+  
+    <div class="container">
+      <div class="contactInfo">
+        <div class="box">
+          <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="text">
+            <h3>Adress</h3>
+            <address class="body-lg" >
+              Juba,
+              South Sudan
+            </address>
+          </div>
+        </div>
+        
+      
+      <div class="box">
+        <div class="icon"><i class="fa-solid fa-phone"></i></div>
+        <div class="text">
+          <h3>Phone</h3>
+          <a href="tel:+212644377779" class="body-lg" >+212644377779</a>
+        </div>
+      </div>
+    
+    <div class="box">
+      <div class="icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+      <div class="text">
+        <h3>Email</h3>
+        <a href="tel:intysilva1@gmail.com" class="body-lg" >expressudgmail.com</a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+    
+  <div class="contactform">
+    <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
+      <h2>Send Message</h2>
+      <div class="inputBox">
+        <input type="text" name="" formControlName="name">
+        <span for="name">Full Name</span>
+        <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
+          <p class="error-message">Name is required.</p>
+        </div>
+      </div>
+      <div class="inputBox">
+        <input type="text" name="" formControlName="email">
+        <span>Email</span>
+        <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
+          <p class="error-message">Email is required.</p>
+        </div>
+      </div>
+      <div class="inputBox">
+       <textarea name=""  formControlName="message"></textarea>
+        <span>Type your Message..</span>
+        <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">
+          <p class="error-message">Message is required.</p>
+        </div>
+      </div>
+      <div class="inputBox">
+        <button type="submit" id="btn">Send</button>
+        <p *ngIf="messageReceived" class="info">Your message is received. Thank you!</p>
+      </div>
+    </form>
+  </div>
+  
+
+  <!-- <div class="contact-content">
+
+    <p class="info">Contact Information</p>
+
+    <ul class="contact-list">
+
+      <li class="contact-item">
+
+        <div class="item-icon" style="background-color:blue">
+          <ion-icon name="call-outline"></ion-icon>
+        </div>
+
+        <div>
+          <p class="label-lg" style="color: white;">Phone</p>
+
+          <a href="tel:+212644377779" class="body-lg" style="color: black;">+212644377779</a>
+        </div>
+
+      </li>
+
+      <li class="contact-item">
+
+        <div class="item-icon"style="background-color:blue" >
+          <ion-icon name="mail" aria-hidden="true"></ion-icon>
+        </div>
+
+        <div>
+          <p class="label-lg" style="color: white;">Mail</p>
+
+          <a href="tel:intysilva1@gmail.com" class="body-lg" style="color: black;">info</a>
+        </div>
+
+      </li>
+
+      <li class="contact-item">
+
+        <div class="item-icon" >
+          <ion-icon name="location" aria-hidden="true"></ion-icon>
+        </div>
+
+        <div>
+          <p class="label-lg" style="color: white;">Adresse</p>
+
+          <address class="body-lg" style="color: black;">
+            Juba,
+            South Sudan
+          </address>
+        </div>
+
+      </li>
+    </ul>
+    <div class="tem">
+      <ion-icon name="logo-twitter"></ion-icon>
+    <ion-icon name="logo-linkedin"></ion-icon>
+    <ion-icon name="logo-instagram"></ion-icon>
+  </div>
+  </div> -->
+</section>
+

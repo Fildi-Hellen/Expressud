@@ -15,17 +15,18 @@ export class HeroComponent implements AfterViewInit {
     { img: "assets/img/home.jpeg" },
     {img: "assets/img/venue.jpg"}
   ];
+  
 
   slideConfig = {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000
+    autoplaySpeed: 1000
   };
 
   ngAfterViewInit() {
     if (this.slickModal) {
-      // this.slickModal.slickInit();
+    
     }
   }
 }

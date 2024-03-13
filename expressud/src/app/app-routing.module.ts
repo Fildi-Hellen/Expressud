@@ -12,9 +12,9 @@ import { BannerComponent } from './components/banner/banner.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { HeaderComponent } from './components/header/header.component';
 import { BusComponent } from './shared/courier/bus/bus.component';
-import { GroceryComponent } from './shared/grocery/grocery.component';
-import { PharmacyComponent } from './shared/pharmacy/pharmacy.component';
-import { RealEstatesComponent } from './shared/real-estates/real-estates.component';
+import { GroceryComponent } from './shared/local-Market/grocery/grocery.component';
+import { PharmacyComponent } from './shared/Components/pharmacy/pharmacy.component';
+import { RealEstatesComponent } from './shared/homes/real-estates/real-estates.component';
 import { FaqComponent } from './help/faq/faq.component';
 import { PrivacyPolicyComponent } from './help/privacy-policy/privacy-policy.component';
 import { AboutUsComponent } from './about/about-us/about-us.component';
@@ -28,6 +28,7 @@ import { ResturantsComponent } from './food/resturants/resturants.component';
 import { CartPageComponent } from './food/cart-page/cart-page.component';
 import { FoodPageComponent } from './food/food-page/food-page.component';
 import { NotFoundComponent } from './food/not-found/not-found.component';
+import { LocalMarketComponent } from './shared/local-Market/local-market/local-market.component';
 
 
 
@@ -62,7 +63,8 @@ const routes: Routes = [
   {path:'cart-page',component:CartPageComponent},
   {path:'not-found',component:NotFoundComponent},
   {path:'lists/id',component:FoodPageComponent},
-  {path:'resturants',component:ResturantsComponent}
+  {path:'resturants',component:ResturantsComponent},
+  {path:'local-market',component:LocalMarketComponent}
   // { path: 'featured', loadChildren: () => import('./routes/featured/featured.module').then(m => m.FeaturedModule) }
 ];
 

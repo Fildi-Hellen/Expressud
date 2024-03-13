@@ -41,33 +41,33 @@ h6 {
 }
 
 h1 {
-	font-size: 70px;
+	font-size: 4.5rem;
 }
 
 h2 {
-	font-size: 36px;
+	font-size: 3.5rem;
 }
 
 h3 {
-	font-size: 30px;
+	font-size: 3.4rem;
 }
 
 h4 {
-	font-size: 24px;
+	font-size: 2.5rem;
 }
 
 h5 {
-	font-size: 18px;
+	font-size: 2.8rem;
 }
 
 h6 {
-	font-size: 16px;
+	font-size: 2.5rem;
 }
 
 p {
-	font-size: 15px;
+	font-size: 1.3rem;
 	font-family: "Nunito Sans", sans-serif;
-	color: #3d3d3d;
+	color: black;
 	font-weight: 400;
 	line-height: 25px;
 	margin: 0 0 15px 0;
@@ -97,7 +97,9 @@ ol {
 	padding: 0;
 	margin: 0;
 }
+/* styles.css */
 
+  
 /*---------------------
   Helper CSS
 -----------------------*/
@@ -151,7 +153,7 @@ ol {
 #btn{
   
     padding: 1.3em 3em;
-    font-size: 12px;
+    font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 2.5px;
     font-weight: 500;

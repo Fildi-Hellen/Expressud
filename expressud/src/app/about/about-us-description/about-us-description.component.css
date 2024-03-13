@@ -1,0 +1,58 @@
+/* Centering h1, p, h2 */
+
+h1,
+p,
+h2 {
+    text-align: center;
+}
+
+.container{
+    word-wrap: break-word;
+    overflow-wrap: break-word; 
+    align-items: center;
+}
+.title-lg {
+    font-size: 34px; 
+    margin-bottom: 20px;
+}
+p {
+    font-size: 1.5rem; 
+    line-height: 1.5; 
+    margin-bottom: 15px; 
+    padding: 10 0px;
+    text-align: start;
+   
+}
+
+h2 {
+    font-size: 1.5rem; 
+    margin-top: 30px; 
+}
+
+
+ul {
+    list-style-type: none; 
+    padding: 0;
+    margin-top: 10px; 
+}
+
+/* Styling li */
+li {
+    font-size: 16px; 
+    margin-bottom: 10px; 
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    
+    h1 {
+        font-size: 20px; 
+    }
+    h2 {
+        font-size: 18px; 
+    }
+    p,
+    li {
+        font-size: 14px; 
+    }
+}

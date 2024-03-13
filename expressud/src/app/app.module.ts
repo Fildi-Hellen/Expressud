@@ -13,9 +13,9 @@ import { HeroComponent } from './components/hero/hero.component';
 import { ProductComponent } from './components/product/product.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BusComponent } from './shared/courier/bus/bus.component';
-import { RealEstatesComponent } from './shared/real-estates/real-estates.component';
-import { PharmacyComponent } from './shared/pharmacy/pharmacy.component';
-import { GroceryComponent } from './shared/grocery/grocery.component';
+import { RealEstatesComponent } from './shared/homes/real-estates/real-estates.component';
+import { PharmacyComponent } from './shared/Components/pharmacy/pharmacy.component';
+import { GroceryComponent } from './shared/local-Market/grocery/grocery.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
@@ -47,6 +47,7 @@ import { TagsComponent } from './food/tags/tags.component';
 import { FoodPageComponent } from './food/food-page/food-page.component';
 import { CartPageComponent } from './food/cart-page/cart-page.component';
 import { ResturantsComponent } from './food/resturants/resturants.component';
+import { LocalMarketComponent } from './shared/local-Market/local-market/local-market.component';
 
 
 
@@ -82,7 +83,8 @@ import { ResturantsComponent } from './food/resturants/resturants.component';
   TagsComponent,
   FoodPageComponent,
   CartPageComponent,
-  ResturantsComponent
+  ResturantsComponent,
+  LocalMarketComponent
 
   ],
 

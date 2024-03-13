@@ -1,0 +1,36 @@
+.container{
+    word-wrap: break-word;
+    overflow-wrap: break-word; 
+    align-items: center;
+}
+p {
+    font-size: 1.5rem; 
+    line-height: 1.5; 
+    margin-bottom: 15px; 
+    padding: 10 0px;
+
+   
+}
+.about-btn{
+    padding-left: 80px;
+    margin: 40px;
+    justify-content: center;
+}
+
+h3{
+    font-size: 1.0rem;
+    text-align: center;
+}
+h2 {
+    font-size: 1.5rem; 
+    margin-top: 30px; 
+}
+.title-lg {
+    font-size: 34px; 
+    margin-bottom: 20px;
+    text-align: center;
+}
+.btn{
+    align-items: center;
+    margin: 30px;
+}

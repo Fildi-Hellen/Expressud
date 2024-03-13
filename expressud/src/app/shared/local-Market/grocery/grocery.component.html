@@ -1,0 +1,26 @@
+<app-search></app-search> 
+<app-tags></app-tags>
+<app-not-found [visible]="!mae|| mae.length <= 0" resetLinkText="Reset Search"></app-not-found> 
+<ul>
+   <li *ngFor="let market of mae">
+       <a routerLink="/market/{{market.id}}">
+           <img src="{{market.imageUrl}}" alt="">
+           <div class="content">
+               <div class="name">
+                   {{mae.name}}
+               </div>
+           </div>
+           <span class="favorite {{mae.favorite?'':'not'}}" >
+               ❤
+           </span>       
+               <div class="price">
+                   <span>
+                       {{mae.price|currency}}
+                   </span>
+               </div>
+           
+       </a>
+       
+
+   </li>
+</ul>

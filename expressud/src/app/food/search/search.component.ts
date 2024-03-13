@@ -9,13 +9,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class SearchComponent implements OnInit {
 
-  searchTerm: String = "";
+  searchTerm = '';
   constructor(private route: ActivatedRoute, private router:Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      if (params['searchTerm'])
-        this.searchTerm = params['searchTerm'];
+      if (params.searchTerm)
+        this.searchTerm = params.searchTerm;
     })
   }
 

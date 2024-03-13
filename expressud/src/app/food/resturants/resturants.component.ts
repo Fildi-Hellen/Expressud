@@ -19,7 +19,7 @@ export class ResturantsComponent implements OnInit {
 ngOnInit (): void {
   this.route.params.subscribe(params => {
     if (params['searchTerm'])
-      this.lists = this.listsservice.getAllListsBySearchTerm(params['searchTerm']);
+      this.lists = this.listsservice.getAllListsBySearchTerm(params.searchTerm);
     else if (params['tag'])
       this.lists = this.listsservice.getAllListsByTag(params['tag']);
     else
