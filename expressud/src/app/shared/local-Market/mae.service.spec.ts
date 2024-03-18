@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { MaeService } from './mae.service';
+import { MaeService } from '../../Services/mae.service';
 
 describe('MaeService', () => {
   let service: MaeService;

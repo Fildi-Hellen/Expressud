@@ -41,13 +41,27 @@ import { AboutUsTitleComponent } from './about/about-us-title/about-us-title.com
 import { FormComponent } from './shared/courier/form/form.component';
 import { ServiceSectionComponent } from './shared/courier/service-section/service-section.component';
 import { HeroCourierComponent } from './shared/courier/hero-courier/hero-courier.component';
-import { NotFoundComponent } from './food/not-found/not-found.component';
-import { SearchComponent } from './food/search/search.component';
-import { TagsComponent } from './food/tags/tags.component';
-import { FoodPageComponent } from './food/food-page/food-page.component';
-import { CartPageComponent } from './food/cart-page/cart-page.component';
-import { ResturantsComponent } from './food/resturants/resturants.component';
+import { FoodPageComponent } from './pages/food-page/food-page.component';
+import { ResturantsComponent } from './components/partials/resturants/resturants.component';
 import { LocalMarketComponent } from './shared/local-Market/local-market/local-market.component';
+import { ToastrModule } from 'ngx-toastr';
+import { InputContainerComponent } from './components/partials/input-container/input-container.component';
+import { InputValidationComponent } from './components/partials/input-validation/input-validation.component';
+import { TextInputComponent } from './components/partials/text-input/text-input.component';
+import { DefaultButtonComponent } from './components/partials/default-button/default-button.component';
+import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { LoadingComponent } from './components/partials/loading/loading.component';
+import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.component';
+import { OrderItemsListComponent } from './components/partials/order-items-list/order-items-list.component';
+import { MapComponent } from './components/partials/map/map.component';
+import { PaymentPageComponent } from './pages/payment-page/payment-page.component';
+import { PaypalButtonComponent } from './components/partials/paypal-button/paypal-button.component';
+import { StarRatingComponent } from './components/partials/star-rating/star-rating.component';
+import { OrderTrackPageComponent } from './pages/order-track-page/order-track-page.component';
+import { CartPageComponent } from './pages/cart-page/cart-page.component';
+import { NotFoundComponent } from './components/partials/not-found/not-found.component';
+import { SearchComponent } from './components/partials/search/search.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 
 
@@ -80,16 +94,31 @@ import { LocalMarketComponent } from './shared/local-Market/local-market/local-m
   HeroCourierComponent,
   NotFoundComponent,
   SearchComponent,
-  TagsComponent,
+  // TagsComponent,
   FoodPageComponent,
   CartPageComponent,
-  ResturantsComponent,
-  LocalMarketComponent
+ ResturantsComponent,
+  LocalMarketComponent,
+  LoginPageComponent,
+    InputContainerComponent,
+    InputValidationComponent,
+    TextInputComponent,
+    DefaultButtonComponent,
+    RegisterPageComponent,
+    LoadingComponent,
+    CheckoutPageComponent,
+    OrderItemsListComponent,
+    MapComponent,
+    PaymentPageComponent,
+    PaypalButtonComponent,
+    OrderTrackPageComponent,
+    StarRatingComponent
 
   ],
 
   imports: [
      BrowserModule,
+     BrowserAnimationsModule,
      NgbModule,
      BrowserModule,
      AppRoutingModule,
@@ -104,6 +133,7 @@ import { LocalMarketComponent } from './shared/local-Market/local-market/local-m
      FontAwesomeModule,
      ReactiveFormsModule,
      FormsModule,
+     ToastrModule,
      IonicModule.forRoot()
      
     
@@ -111,7 +141,9 @@ import { LocalMarketComponent } from './shared/local-Market/local-market/local-m
   providers: [
     provideAnimationsAsync(),
     ContactService,
-    { provide: LocationStrategy, useClass: HashLocationStrategy }
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    // {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi: true },
+    // {provide:HTTP_INTERCEPTORS, useClass:LoadingInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

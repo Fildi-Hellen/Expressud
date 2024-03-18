@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MaeService } from '../mae.service';
+import { MaeService } from '../../../Services/mae.service';
 
 @Component({
   selector: 'app-grocery',

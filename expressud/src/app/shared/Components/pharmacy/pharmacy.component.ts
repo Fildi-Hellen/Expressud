@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PharmacyService } from '../pharmacy.service';
+import { PharmacyService } from '../../../Services/pharmacy.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

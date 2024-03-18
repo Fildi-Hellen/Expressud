@@ -24,11 +24,16 @@ import { AboutUsDescriptionComponent } from './about/about-us-description/about-
 import { ServiceSectionComponent } from './shared/courier/service-section/service-section.component';
 import { FormComponent } from './shared/courier/form/form.component';
 import { HeroCourierComponent } from './shared/courier/hero-courier/hero-courier.component';
-import { ResturantsComponent } from './food/resturants/resturants.component';
-import { CartPageComponent } from './food/cart-page/cart-page.component';
-import { FoodPageComponent } from './food/food-page/food-page.component';
-import { NotFoundComponent } from './food/not-found/not-found.component';
+import { ResturantsComponent } from './components/partials/resturants/resturants.component';
 import { LocalMarketComponent } from './shared/local-Market/local-market/local-market.component';
+import { NotFoundComponent } from './components/partials/not-found/not-found.component';
+import { CartPageComponent } from './pages/cart-page/cart-page.component';
+import { FoodPageComponent } from './pages/food-page/food-page.component';
+import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.component';
+import { OrderTrackPageComponent } from './pages/order-track-page/order-track-page.component';
+import { PaymentPageComponent } from './pages/payment-page/payment-page.component';
+import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 
 
@@ -64,7 +69,15 @@ const routes: Routes = [
   {path:'not-found',component:NotFoundComponent},
   {path:'lists/id',component:FoodPageComponent},
   {path:'resturants',component:ResturantsComponent},
-  {path:'local-market',component:LocalMarketComponent}
+  {path:'local-market',component:LocalMarketComponent},
+  {path:'food/:id', component:FoodPageComponent},
+  {path:'cart-page', component: CartPageComponent},
+  {path:'login', component: LoginPageComponent},
+  {path:'register', component: RegisterPageComponent},
+  {path:'checkout', component: CheckoutPageComponent, canActivate:[AuthGuard]},
+  {path:'payment', component: PaymentPageComponent, canActivate:[AuthGuard]},
+  {path:'track/:orderId', component: OrderTrackPageComponent, canActivate:[AuthGuard]},
+
   // { path: 'featured', loadChildren: () => import('./routes/featured/featured.module').then(m => m.FeaturedModule) }
 ];
 
