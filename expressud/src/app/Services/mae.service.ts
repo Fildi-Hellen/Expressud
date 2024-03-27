@@ -1,105 +1,32 @@
-import { Injectable } from '@angular/core';
-import { market } from '../Shared1/models/market'
+// import { Injectable } from '@angular/core';
+// import { market } from '../Shared1/models/market'
 
-@Injectable({
-  providedIn: 'root'
-})
-export class MaeService {
-  getAllMarketsByTag(arg0: any): any {
-    throw new Error('Method not implemented.');
-  }
-  getAllmarketsBySearchTerm(arg0: any): any {
-    throw new Error('Method not implemented.');
-  }
-  
-  
+// @Injectable({
+//   providedIn: 'root'
+// })
+// export class MaeService {
+//   constructor(private http:HttpClient) { }
 
-  constructor() { }
-  getmarketsById(id: number): market{
-    return this.getAll().find(market => market.id == id)!;
-  }
-  
-  getAllMarketsBySearchTerm(searchTerm:string) :market[]{
-    return  this.getAll().filter(market =>
-      market.name.toLowerCase().includes(searchTerm.toLowerCase()));
-  }
- 
+//   getAll(): Observable<Food[]> {
+//     return this.http.get<Food[]>(FOODS_URL);
+//   }
 
-  
-  getAll():market[]{
-    return[
-    {
-      id:1,
-      name:'Sanitary pads',
-      price:10,
-      favorite:false,
-      imageUrl:'assets/img/components/always.jpg'
-     
-    },
-    {
-      id:2,
-      name:'baby',
-      price:13,
-      favorite:false,
-      imageUrl:'assets/img/components/baby.jpg'
-    },
-    {
-      id:3,
-      name:'Burger King',
-      price:10,
-      favorite:false,
-      imageUrl:'assets/img/components/bag.jpg'
-    },
-    {
-      id:4,
-      name:'Baby food',
-      price:10,
-      favorite:false,
-     imageUrl:'assets/img/components/cerelac.webp'
-    },
-    {
-      id:5,
-      name:'skin care',
-      price:10,
-      favorite:false,
-     imageUrl:'assets/img/components/cereva.jpg'
-    },
-    {
-      id:6,
-      name:'feeding set',
-      price:10,
-      favorite:false,
-     imageUrl:'assets/img/components/feeding.webp'
-    },
-    {
-      id:7,
-      name:'Baby johnson',
-      price:10,
-      favorite:false,
-     imageUrl:'assets/img/components/Johnsons.jpg'
-    },
-    {
-      id:8,
-      name:'pampers',
-      price:14,
-      favorite:false,
-     imageUrl:'assets/img/components/pampers.jpg'
-    },
-    {
-      id:9,
-      name:'Baby wipes',
-      price:14,
-      favorite:false,
-     imageUrl:'assets/img/components/wipes.png'
-    },
-    {
-      id:10,
-      name:'Skin care',
-      price:14,
-      favorite:false,
-     imageUrl:'assets/img/components/skin.webp'
-    }
-      
-    ]
-  }
-}
+//   getAllFoodsBySearchTerm(searchTerm: string) {
+//     return this.http.get<Food[]>(FOODS_BY_SEARCH_URL + searchTerm);
+//   }
+
+//   getAllTags(): Observable<Tag[]> {
+//     return this.http.get<Tag[]>(FOODS_TAGS_URL);
+//   }
+
+//   getAllFoodsByTag(tag: string): Observable<Food[]> {
+//     return tag === "All" ?
+//       this.getAll() :
+//       this.http.get<Food[]>(FOODS_BY_TAG_URL + tag);
+//   }
+
+//   getFoodById(foodId:string):Observable<Food>{
+//     return this.http.get<Food>(FOOD_BY_ID_URL + foodId);
+//   }
+
+// }

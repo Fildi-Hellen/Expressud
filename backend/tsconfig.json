@@ -1,14 +1,16 @@
-// {
-//     "compilerOptions": {
-//       "module": "CommonJS",
-//       "moduleResolution": "node",
-//       "strict": true,
-//       "outDir": "./built",
-//       "experimentalDecorators": true,
-//       "emitDecoratorMetadata": true,
-//       "esModuleInterop": true
-//     },
-//     "include": [
-//       "src/**/*.d.ts"
-//     ]
-// }
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "strict": true,
+    "outDir": "./built",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "types": ["express","cors"]
+  },
+  "include": [
+    "src/**/*.ts" // Include TypeScript files in the src directory and its subdirectories
+  ]
+ 
+}

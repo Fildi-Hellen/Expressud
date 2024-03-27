@@ -1,7 +1,8 @@
 import { Router } from 'express';
-import { sample_boutiques, sample_tags } from '../data';
+import { sample_boutiques,sample_tags } from '../bout';
 import asyncHandler from 'express-async-handler';
 import { BoutiqueModel } from '../models/boutique.model';
+
 const router = Router();
 
 router.get(
@@ -78,8 +79,8 @@ router.get(
 router.get(
   '/:boutiqueId',
   asyncHandler(async (req, res) => {
-    const food = await BoutiqueModel.findById(req.params.foodId);
-    res.send(food);
+    const boutique = await BoutiqueModel.findById(req.params.boutiqueId);
+    res.send(boutique);
   })
 );
 

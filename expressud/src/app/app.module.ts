@@ -62,6 +62,7 @@ import { CartPageComponent } from './pages/cart-page/cart-page.component';
 import { NotFoundComponent } from './components/partials/not-found/not-found.component';
 import { SearchComponent } from './components/partials/search/search.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { TagsComponent } from './components/partials/tags/tags.component';
 
 
 
@@ -94,7 +95,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
   HeroCourierComponent,
   NotFoundComponent,
   SearchComponent,
-  // TagsComponent,
+  TagsComponent,
   FoodPageComponent,
   CartPageComponent,
  ResturantsComponent,
