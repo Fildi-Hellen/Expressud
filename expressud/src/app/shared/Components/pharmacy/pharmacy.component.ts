@@ -1,32 +1,34 @@
-// import { Component, OnInit } from '@angular/core';
-// import { PharmacyService } from '../../../Services/pharmacy.service';
-// import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { PharmacyService } from 'src/app/Services/pharmacy.service'
+import { ActivatedRoute } from '@angular/router';
+import { pharm } from 'src/app/Shared1/models/pharm';
+import { Observable } from 'rxjs';
 
-// @Component({
-//   selector: 'app-pharmacy',
+@Component({
+  selector: 'app-pharmacy',
  
-//   templateUrl: './pharmacy.component.html',
-//   styleUrls: ['./pharmacy.component.css']
-// })
-// export class PharmacyComponent implements OnInit{
-//   foods: Food[] = [];
-//   constructor(private foodService: FoodService, activatedRoute: ActivatedRoute) {
-//     let foodsObservalbe:Observable<Food[]>;
-//     activatedRoute.params.subscribe((params) => {
-//       if (params.searchTerm)
-//         foodsObservalbe = this.foodService.getAllFoodsBySearchTerm(params.searchTerm);
-//       else if (params.tag)
-//         foodsObservalbe = this.foodService.getAllFoodsByTag(params.tag);
-//       else
-//         foodsObservalbe = foodService.getAll();
+  templateUrl: './pharmacy.component.html',
+  styleUrls: ['./pharmacy.component.css']
+})
+export class PharmacyComponent implements OnInit{
+  pharms: pharm[] = [];
+  constructor(private pharmacyService: PharmacyService, activatedRoute: ActivatedRoute) {
+    let PharmsObservalbe:Observable<pharm[]>;
+    activatedRoute.params.subscribe((params) => {
+      if (params.searchTerm)
+        PharmsObservalbe = this.pharmacyService.getAllPharmsBySearchTerm(params.searchTerm);
+      else if (params.tag)
+        PharmsObservalbe = this.pharmacyService.getAllPharmsByTag(params.tag);
+      else
+        PharmsObservalbe = pharmacyService.getAll();
 
-//         foodsObservalbe.subscribe((serverFoods) => {
-//           this.foods = serverFoods;
-//         })
-//     })
-//   }
+        PharmsObservalbe.subscribe((serverPharms) => {
+          this.pharms = serverPharms;
+        })
+    })
+  }
 
-//   ngOnInit(): void {
-//   }
+  ngOnInit(): void {
+  }
 
-// }
+}

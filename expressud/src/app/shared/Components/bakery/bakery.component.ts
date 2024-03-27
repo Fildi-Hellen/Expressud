@@ -1,32 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import {FoodService} from 'src/app/Services/food.service';
+import {BakeryService} from 'src/app/Services/bakery.service';
 import { ActivatedRoute } from '@angular/router';
-import { Food } from 'src/app/Shared1/models/Food';
+import { Bakery } from 'src/app/Shared1/models/bakery'
 
 @Component({
   selector: 'app-bakery',
-  standalone: true,
-  imports: [],
   templateUrl: './bakery.component.html',
-  styleUrl: './bakery.component.css'
+  styleUrls: ['./bakery.component.css']
 })
 export class BakeryComponent implements OnInit {
 
 
-  foods: Food[] = [];
-  constructor(private foodService: FoodService, activatedRoute: ActivatedRoute) {
-    let foodsObservalbe:Observable<Food[]>;
+  bakerys: Bakery[] = [];
+
+  constructor(private bakeryService: BakeryService, activatedRoute: ActivatedRoute) {
+    let BakerysObservalbe:Observable<Bakery[]>;
     activatedRoute.params.subscribe((params) => {
       if (params.searchTerm)
-        foodsObservalbe = this.foodService.getAllFoodsBySearchTerm(params.searchTerm);
+        BakerysObservalbe = this.bakeryService.getAllBakerysBySearchTerm(params.searchTerm);
       else if (params.tag)
-        foodsObservalbe = this.foodService.getAllFoodsByTag(params.tag);
+        BakerysObservalbe = this.bakeryService.getAllBakerysByTag(params.tag);
       else
-        foodsObservalbe = foodService.getAll();
+        BakerysObservalbe = BakeryService.getAll();
 
-        foodsObservalbe.subscribe((serverFoods) => {
-          this.foods = serverFoods;
+        BakerysObservalbe.subscribe((serverBakerys) => {
+          this.bakerys = serverBakerys;
         })
     })
   }

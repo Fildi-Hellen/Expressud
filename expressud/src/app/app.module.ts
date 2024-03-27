@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import  {HomeComponent} from './components/home/home.component';
 import { BlogComponent } from './components/blog/blog.component';
@@ -13,13 +14,12 @@ import { HeroComponent } from './components/hero/hero.component';
 import { ProductComponent } from './components/product/product.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BusComponent } from './shared/courier/bus/bus.component';
-import { RealEstatesComponent } from './shared/homes/real-estates/real-estates.component';
 import { PharmacyComponent } from './shared/Components/pharmacy/pharmacy.component';
 import { GroceryComponent } from './shared/local-Market/grocery/grocery.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'; 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {VgCoreModule} from '@videogular/ngx-videogular/core';
 import {VgControlsModule} from '@videogular/ngx-videogular/controls';
@@ -63,6 +63,16 @@ import { NotFoundComponent } from './components/partials/not-found/not-found.com
 import { SearchComponent } from './components/partials/search/search.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { TagsComponent } from './components/partials/tags/tags.component';
+import { RealEstatesComponent } from './shared/homes/real-estates/real-estates.component';
+import { SweetsComponent } from './shared/local-Market/sweets/sweets.component';
+import { HairComponent } from './shared/Components/hair/hair.component';
+import { FurnituresComponent } from './shared/homes/furnitures/furnitures.component';
+import { CosmeticComponent } from './shared/Components/cosmetic/cosmetic.component';
+import { BakeryComponent } from './shared/Components/bakery/bakery.component';
+import { BoutiqueComponent } from './shared/Components/boutique/boutique.component';
+import { AuthInterceptor } from './auth/auth.interceptor';
+import { LoadingInterceptor } from './Shared1/interceptors/loading.interceptor';
+import { TitleComponent } from './components/partials/title/title.component';
 
 
 
@@ -80,7 +90,6 @@ import { TagsComponent } from './components/partials/tags/tags.component';
     NavbarComponent,
     FooterComponent,
     BusComponent,
-    RealEstatesComponent,
     PharmacyComponent,
     GroceryComponent,
     FaqComponent,
@@ -113,7 +122,15 @@ import { TagsComponent } from './components/partials/tags/tags.component';
     PaymentPageComponent,
     PaypalButtonComponent,
     OrderTrackPageComponent,
-    StarRatingComponent
+    StarRatingComponent,
+    SweetsComponent,
+    HairComponent,
+    FurnituresComponent,
+    CosmeticComponent,
+    BakeryComponent,
+    RealEstatesComponent,
+    BoutiqueComponent,
+    TitleComponent
 
   ],
 
@@ -134,8 +151,12 @@ import { TagsComponent } from './components/partials/tags/tags.component';
      FontAwesomeModule,
      ReactiveFormsModule,
      FormsModule,
-     ToastrModule,
-     IonicModule.forRoot()
+     ToastrModule.forRoot({
+      timeOut:3000,
+      positionClass:'toast-bottom-right',
+      newestOnTop:false
+    })
+    //  IonicModule.forRoot()
      
     
   ],
@@ -143,8 +164,8 @@ import { TagsComponent } from './components/partials/tags/tags.component';
     provideAnimationsAsync(),
     ContactService,
     { provide: LocationStrategy, useClass: HashLocationStrategy },
-    // {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi: true },
-    // {provide:HTTP_INTERCEPTORS, useClass:LoadingInterceptor, multi: true }
+    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi: true },
+    {provide:HTTP_INTERCEPTORS, useClass:LoadingInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

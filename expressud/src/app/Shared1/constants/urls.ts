@@ -44,7 +44,6 @@ export const REALS_BY_SEARCH_URL = REALS_URL + '/search/';
 export const REALS_BY_TAG_URL = REALS_URL + '/tag/';
 export const REAL_BY_ID_URL = REALS_URL + '/';
 
-
 export const PHARMS_URL = BASE_URL + '/api/pharms';
 export const PHARMS_TAGS_URL = PHARMS_URL + '/tags';
 export const PHARMS_BY_SEARCH_URL = PHARMS_URL + '/search/';

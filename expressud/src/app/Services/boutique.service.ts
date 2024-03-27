@@ -1,31 +1,43 @@
-// import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Tag } from '../Shared1/models/Tag';
+import { Boutique } from '../Shared1/models/boutique';
+import { BOUTIQUES_URL, BOUTIQUES_BY_SEARCH_URL, BOUTIQUES_TAGS_URL, BOUTIQUES_BY_TAG_URL, BOUTIQUE_BY_ID_URL } from '../shared1/constants/urls';
+//import{sample_boutiques,sample_tags} from 'src/bout'
 
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class BoutiqueService {
+@Injectable({
+  providedIn: 'root'
+})
+export class BoutiqueService {
+  getAllBoutiquesByTag(tag: any): Observable<Boutique[]> {
+    throw new Error('Method not implemented.');
+  }
+  getAllBoutiquesBySearchTerm(searchTerm: any): Observable<Boutique[]> {
+    throw new Error('Method not implemented.');
+  }
 
-//   constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) { }
 
-//   getAll(): Observable<Food[]> {
-//     return this.http.get<Food[]>(FOODS_URL);
-//   }
+  getAll(): Observable<Boutique[]> {
+    return this.http.get<Boutique[]>(BOUTIQUES_URL);
+  }
 
-//   getAllFoodsBySearchTerm(searchTerm: string) {
-//     return this.http.get<Food[]>(FOODS_BY_SEARCH_URL + searchTerm);
-//   }
+  getAllBOUTIQUEsBySearchTerm(searchTerm: string) {
+    return this.http.get<Boutique[]>(BOUTIQUES_BY_SEARCH_URL + searchTerm);
+  }
 
-//   getAllTags(): Observable<Tag[]> {
-//     return this.http.get<Tag[]>(FOODS_TAGS_URL);
-//   }
+  getAllTags(): Observable<Tag[]> {
+    return this.http.get<Tag[]>(BOUTIQUES_TAGS_URL);
+  }
 
-//   getAllFoodsByTag(tag: string): Observable<Food[]> {
-//     return tag === "All" ?
-//       this.getAll() :
-//       this.http.get<Food[]>(FOODS_BY_TAG_URL + tag);
-//   }
+  getAllBOUTIQUEsByTag(tag: string): Observable<Boutique[]> {
+    return tag === "All" ?
+      this.getAll() :
+      this.http.get<Boutique[]>(BOUTIQUES_BY_TAG_URL + tag);
+  }
 
-//   getFoodById(foodId:string):Observable<Food>{
-//     return this.http.get<Food>(FOOD_BY_ID_URL + foodId);
-//   }
-// }
+  getBOUTIQUEById(boutiqueId:string):Observable<Boutique>{
+    return this.http.get<Boutique>(BOUTIQUE_BY_ID_URL + boutiqueId);
+  }
+}

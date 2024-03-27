@@ -1,4 +1,5 @@
 export  class market{
+[x: string]: number;
     id!:number;
     name!:String;
     price!:number;

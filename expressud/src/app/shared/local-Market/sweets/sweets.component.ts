@@ -1,31 +1,33 @@
-// import { Component } from '@angular/core';
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import {SweetService} from 'src/app/Services/sweet.service'
+import { Sweet } from 'src/app/Shared1/models/sweet';
 
-// @Component({
-//   selector: 'app-sweets',
-//   standalone: true,
-//   imports: [],
-//   templateUrl: './sweets.component.html',
-//   styleUrl: './sweets.component.css'
-// })
-// export class SweetsComponent {
-//   foods: Food[] = [];
-//   constructor(private foodService: FoodService, activatedRoute: ActivatedRoute) {
-//     let foodsObservalbe:Observable<Food[]>;
-//     activatedRoute.params.subscribe((params) => {
-//       if (params.searchTerm)
-//         foodsObservalbe = this.foodService.getAllFoodsBySearchTerm(params.searchTerm);
-//       else if (params.tag)
-//         foodsObservalbe = this.foodService.getAllFoodsByTag(params.tag);
-//       else
-//         foodsObservalbe = foodService.getAll();
+@Component({
+  selector: 'app-sweets',
+  templateUrl: './sweets.component.html',
+  styleUrls: ['./sweets.component.css' ]
+})
+export class SweetsComponent {
+  sweets: Sweet[] = [];
+  constructor(private sweetService: SweetService, activatedRoute: ActivatedRoute) {
+    let sweetsObservalbe:Observable<Sweet[]>;
+    activatedRoute.params.subscribe((params) => {
+      if (params.searchTerm)
+        sweetsObservalbe = this.sweetService.getAllSweetsBySearchTerm(params.searchTerm);
+      else if (params.tag)
+        sweetsObservalbe = this.sweetService.getAllSweetsByTag(params.tag);
+      else
+        sweetsObservalbe = sweetService.getAll();
 
-//         foodsObservalbe.subscribe((serverFoods) => {
-//           this.foods = serverFoods;
-//         })
-//     })
-//   }
+        sweetsObservalbe.subscribe((serversweets) => {
+          this.sweets = serversweets;
+        })
+    })
+  }
 
-//   ngOnInit(): void {
-//   }
+  ngOnInit(): void {
+  }
 
-// }
+}

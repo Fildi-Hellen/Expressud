@@ -1,27 +1,27 @@
-<!-- <app-search></app-search>
+<app-search></app-search>
 <app-tags></app-tags> 
 <app-not-found
-[visible]="!foods || !foods.length"
+[visible]="!bakerys || !bakerys.length"
 resetLinkText="Reset Search">
 </app-not-found>
 <ul>
-  <li *ngFor="let food of foods">
-    <a routerLink="/food/{{food.id}}">
+  <li *ngFor="let bakery of bakerys">
+    <a routerLink="/bakery/{{bakery.id}}">
       
-      <img [src]="food.imageUrl" [alt]="food.name" />
+      <img [src]="bakery.imageUrl" [alt]="bakery.name" />
       <div class="content">
         <div class="name">
-          {{food.name}}
+          {{bakery.name}}
         </div>
-        <span class="favorite {{food.favorite?'':'not'}}">
+        <span class="favorite {{bakery.favorite?'':'not'}}">
           ❤
         </span>
         <div class="stars">
-          <star-rating [stars]="food.stars" />
+          <star-rating [stars]="bakery.stars" />
         </div>
         <div class="product-item-footer">
           <div class="origins">
-            <span *ngFor="let origin of food.origins">
+            <span *ngFor="let origin of bakery.origins">
               {{origin}}
             </span>
           </div>
@@ -29,11 +29,11 @@ resetLinkText="Reset Search">
 
         <div class="price">
           <span>
-            {{food.price | currency}}
+            {{bakery.price | currency}}
           </span>
         </div>
       </div>
     </a>
   </li>
 </ul>
- -->
+

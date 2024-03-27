@@ -1,4 +1,4 @@
-export class Sweets{
+export class Sweet{
     id!:string;
     name!:string;
     price!:number;

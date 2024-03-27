@@ -1,27 +1,37 @@
-// import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Cosmetic } from 'src/app/Shared1/models/cosmetic';
+import {CosmeticService, } from 'src/app/Services/cosmetic.service';
 
-// @Component({
-//   selector: 'app-cosmetic',
-//   standalone: true,
-//   imports: [],
-//   templateUrl: './cosmetic.component.html',
-//   styleUrl: './cosmetic.component.css'
-// })
-// export class CosmeticComponent {
-//   foods: Food[] = [];
-//   constructor(private foodService: FoodService, activatedRoute: ActivatedRoute) {
-//     let foodsObservalbe:Observable<Food[]>;
-//     activatedRoute.params.subscribe((params) => {
-//       if (params.searchTerm)
-//         foodsObservalbe = this.foodService.getAllFoodsBySearchTerm(params.searchTerm);
-//       else if (params.tag)
-//         foodsObservalbe = this.foodService.getAllFoodsByTag(params.tag);
-//       else
-//         foodsObservalbe = foodService.getAll();
+@Component({
+  selector: 'app-cosmetic',
+  templateUrl: './cosmetic.component.html',
+  styleUrls: ['./cosmetic.component.css']
+})
+export class CosmeticComponent implements OnInit {
+  cosmetics: Cosmetic[] = [];
+  constructor(private cosmeticService: CosmeticService, activatedRoute: ActivatedRoute) {
+    let cosmeticsObservalbe:Observable<Cosmetic[]>;
+    activatedRoute.params.subscribe((params) => {
+      if (params.searchTerm)
+        cosmeticsObservalbe = this.cosmeticService.getAllCosmeticsBySearchTerm(params.searchTerm);
+      else if (params.tag)
+        cosmeticsObservalbe = this.cosmeticService.getAllCosmeticsByTag(params.tag);
+      else
+        cosmeticsObservalbe = cosmeticService.getAll();
 
-//         foodsObservalbe.subscribe((serverFoods) => {
-//           this.foods = serverFoods;
-//         })
-//     })
+        cosmeticsObservalbe.subscribe((servercosmetics) => {
+          this.cosmetics = servercosmetics;
+        })
+    })
+   
+    }
 
-// }
+    ngOnInit(): void {
+
+}   
+}
+
+  
+

@@ -1,31 +1,34 @@
-// import { Component } from '@angular/core';
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Real } from 'src/app/Shared1/models/real';
+import {EstateService} from 'src/app/Services/estate.service'
 
-// @Component({
-//   selector: 'app-real-estates',
-//   // standalone: true,
-//   // imports: [],
-//   templateUrl: './real-estates.component.html',
-//   styleUrls: ['./real-estates.component.css']
-// })
-// export class RealEstatesComponent {
+@Component({
+  selector: 'app-real-estates',
 
-//   foods: Food[] = [];
-//   constructor(private foodService: FoodService, activatedRoute: ActivatedRoute) {
-//     let foodsObservalbe:Observable<Food[]>;
-//     activatedRoute.params.subscribe((params) => {
-//       if (params.searchTerm)
-//         foodsObservalbe = this.foodService.getAllFoodsBySearchTerm(params.searchTerm);
-//       else if (params.tag)
-//         foodsObservalbe = this.foodService.getAllFoodsByTag(params.tag);
-//       else
-//         foodsObservalbe = foodService.getAll();
+  templateUrl: './real-estates.component.html',
+  styleUrls: ['./real-estates.component.css']
+})
+export class RealEstatesComponent {
 
-//         foodsObservalbe.subscribe((serverFoods) => {
-//           this.foods = serverFoods;
-//         })
-//     })
-//   }
+  reals: Real[] = [];
+  constructor(private estateService: EstateService, activatedRoute: ActivatedRoute) {
+    let realsObservalbe:Observable<Real[]>;
+    activatedRoute.params.subscribe((params) => {
+      if (params.searchTerm)
+        realsObservalbe = this.estateService.getAllRealsBySearchTerm(params.searchTerm);
+      else if (params.tag)
+        realsObservalbe = this.estateService.getAllRealsByTag(params.tag);
+      else
+        realsObservalbe = estateService.getAll();
 
-//   ngOnInit(): void {
-//   }
-// }
+        realsObservalbe.subscribe((serverReals) => {
+          this.reals = serverReals;
+        })
+    })
+  }
+
+  ngOnInit(): void {
+  }
+}

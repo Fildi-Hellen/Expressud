@@ -1,31 +1,33 @@
-// import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Hair } from 'src/app/Shared1/models/hair';
+import {HairService} from 'src/app/Services/hair.service';
 
-// @Component({
-//   selector: 'app-hair',
-//   standalone: true,
-//   imports: [],
-//   templateUrl: './hair.component.html',
-//   styleUrl: './hair.component.css'
-// })
-// export class HairComponent {
-//   foods: Food[] = [];
-//   constructor(private foodService: FoodService, activatedRoute: ActivatedRoute) {
-//     let foodsObservalbe:Observable<Food[]>;
-//     activatedRoute.params.subscribe((params) => {
-//       if (params.searchTerm)
-//         foodsObservalbe = this.foodService.getAllFoodsBySearchTerm(params.searchTerm);
-//       else if (params.tag)
-//         foodsObservalbe = this.foodService.getAllFoodsByTag(params.tag);
-//       else
-//         foodsObservalbe = foodService.getAll();
+@Component({
+  selector: 'app-hair',
+  templateUrl: './hair.component.html',
+  styleUrls: ['./hair.component.css']
+})
+export class HairComponent  implements OnInit{
+  hairs: Hair[] = [];
+  constructor(private hairService: HairService, activatedRoute: ActivatedRoute) {
+    let HairsObservalbe:Observable<Hair[]>;
+    activatedRoute.params.subscribe((params) => {
+      if (params.searchTerm)
+        HairsObservalbe = this.hairService.getAllHairsBySearchTerm(params.searchTerm);
+      else if (params.tag)
+        HairsObservalbe = this.hairService.getAllHairsByTag(params.tag);
+      else
+        HairsObservalbe = hairService.getAll();
 
-//         foodsObservalbe.subscribe((serverFoods) => {
-//           this.foods = serverFoods;
-//         })
-//     })
-//   }
+        HairsObservalbe.subscribe((serverHairs) => {
+          this.hairs = serverHairs;
+        })
+    })
+  }
 
-//   ngOnInit(): void {
-//   }
+  ngOnInit(): void {
+  }
 
-// }
+}

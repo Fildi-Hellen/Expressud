@@ -1,43 +1,36 @@
-<!-- <app-search></app-search>
+<app-search></app-search>
 <app-tags></app-tags> 
 <app-not-found
-[visible]="!foods || !foods.length"
+[visible]="!reals || !reals.length"
 resetLinkText="Reset Search">
 </app-not-found>
 <ul>
-  <li *ngFor="let food of foods">
-    <a routerLink="/food/{{food.id}}">
-      
-      <img [src]="food.imageUrl" [alt]="food.name" />
+  <li *ngFor="let real of reals">
+    <a routerLink="/real/{{real.id}}">
+      <img [src]="real.imageUrl" [alt]="real.name" />
       <div class="content">
         <div class="name">
-          {{food.name}}
+          {{real.name}}
         </div>
-        <span class="favorite {{food.favorite?'':'not'}}">
+        <span class="favorite {{real.favorite?'':'not'}}">
           ❤
         </span>
         <div class="stars">
-          <star-rating [stars]="food.stars" />
+          <star-rating [stars]="real.stars" />
         </div>
         <div class="product-item-footer">
           <div class="origins">
-            <span *ngFor="let origin of food.origins">
+            <span *ngFor="let origin of real.origins">
               {{origin}}
             </span>
           </div>
-
-          <div class="cook-time">
-            <span>🕒</span>
-            {{food.cookTime}}
-          </div>
-        </div>
-
         <div class="price">
           <span>
-            {{food.price | currency}}
+            {{real.price | currency}}
           </span>
+        </div>
         </div>
       </div>
     </a>
   </li>
-</ul> -->
+</ul>

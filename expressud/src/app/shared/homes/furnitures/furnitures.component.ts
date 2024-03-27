@@ -1,31 +1,34 @@
-// import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Furniture } from 'src/app/Shared1/models/furniture';
+import {FurnitureService} from 'src/app/Services/furniture.service';
 
-// @Component({
-//   selector: 'app-furnitures',
-//   standalone: true,
-//   imports: [],
-//   templateUrl: './furnitures.component.html',
-//   styleUrl: './furnitures.component.css'
-// })
-// export class FurnituresComponent {
-//   foods: Food[] = [];
-//   constructor(private foodService: FoodService, activatedRoute: ActivatedRoute) {
-//     let foodsObservalbe:Observable<Food[]>;
-//     activatedRoute.params.subscribe((params) => {
-//       if (params.searchTerm)
-//         foodsObservalbe = this.foodService.getAllFoodsBySearchTerm(params.searchTerm);
-//       else if (params.tag)
-//         foodsObservalbe = this.foodService.getAllFoodsByTag(params.tag);
-//       else
-//         foodsObservalbe = foodService.getAll();
+@Component({
+  selector: 'app-furnitures',
+  templateUrl: './furnitures.component.html',
+  styleUrls: ['./furnitures.component.css']
+})
 
-//         foodsObservalbe.subscribe((serverFoods) => {
-//           this.foods = serverFoods;
-//         })
-//     })
-//   }
+export class FurnituresComponent implements OnInit {
+  furnitures: Furniture[] = [];
+  constructor(private furnitureService: FurnitureService, activatedRoute: ActivatedRoute) {
+    let furnituresObservalbe:Observable<Furniture[]>;
+    activatedRoute.params.subscribe((params) => {
+      if (params.searchTerm)
+        furnituresObservalbe = this.furnitureService.getAllFurnituresBySearchTerm(params.searchTerm);
+      else if (params.tag)
+        furnituresObservalbe = this.furnitureService.getAllFurnituresByTag(params.tag);
+      else
+        furnituresObservalbe = furnitureService.getAll();
 
-//   ngOnInit(): void {
-//   }
+        furnituresObservalbe.subscribe((serverFurnitures) => {
+          this.furnitures = serverFurnitures;
+        })
+    })
+  }
 
-// }
+  ngOnInit(): void {
+  }
+
+}

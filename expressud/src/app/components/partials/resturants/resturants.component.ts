@@ -4,6 +4,7 @@ import {FoodService} from 'src/app/Services/food.service';
 import { ActivatedRoute } from '@angular/router';
 import { Food } from 'src/app/Shared1/models/Food';
 
+
 @Component({
   selector: 'app-resturants',
   templateUrl: './resturants.component.html',

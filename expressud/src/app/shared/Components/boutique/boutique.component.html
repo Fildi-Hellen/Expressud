@@ -1,38 +1,39 @@
-<app-search></app-search>
+
+ <app-search></app-search>
 <app-tags></app-tags> 
 <app-not-found
-[visible]="!furnitures || !furnitures.length"
+[visible]="!boutiques || !boutiques.length"
 resetLinkText="Reset Search">
 </app-not-found>
 <ul>
-  <li *ngFor="let furniture of furnitures">
-    <a routerLink="/furniture/{{furniture.id}}">
+  <li *ngFor="let boutique of boutiques">
+    <a routerLink="/boutique/{{boutique.id}}">
       
-      <img [src]="furniture.imageUrl" [alt]="furniture.name" />
+      <img [src]="boutique.imageUrl" [alt]="boutique.name" />
       <div class="content">
         <div class="name">
-          {{furniture.name}}
+          {{boutique.name}}
         </div>
-        <span class="favorite {{furniture.favorite?'':'not'}}">
+        <span class="favorite {{boutique.favorite?'':'not'}}">
           ❤
         </span>
         <div class="stars">
-          <star-rating [stars]="furniture.stars" />
+          <star-rating [stars]="boutique.stars" />
         </div>
         <div class="product-item-footer">
           <div class="origins">
-            <span *ngFor="let origin of furniture.origins">
+            <span *ngFor="let origin of boutique.origins">
               {{origin}}
             </span>
           </div>
 
         <div class="price">
           <span>
-            {{furniture.price | currency}}
+            {{boutique.price | currency}}
           </span>
         </div>
       </div>
       </div>
     </a>
   </li>
-</ul>
+</ul> 
