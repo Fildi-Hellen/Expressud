@@ -1,12 +1,11 @@
-export  class pharm{
-[x: string]: number;
-    id!:number;
-    name!:String;
+export  class Pharm{
+     id!:string;
+    name!:string;
     price!:number;
-    favorite:boolean=false;
-    imageUrl!:string;
-    origins!: string[];
     tags?: string[];
-    
+    favorite!:boolean;
+    stars!: number;
+    imageUrl!: string;
+    origins!: string[];
 
 }

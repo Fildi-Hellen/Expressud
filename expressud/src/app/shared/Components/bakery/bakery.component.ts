@@ -11,7 +11,6 @@ import { Bakery } from 'src/app/Shared1/models/bakery'
 })
 export class BakeryComponent implements OnInit {
 
-
   bakerys: Bakery[] = [];
 
   constructor(private bakeryService: BakeryService, activatedRoute: ActivatedRoute) {

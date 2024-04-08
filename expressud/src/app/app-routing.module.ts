@@ -4,7 +4,6 @@ import { HomeComponent } from './components/home/home.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { BlogComponent } from './components/blog/blog.component';
 import { ProductComponent } from './components/product/product.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { InstagramComponent } from './components/instagram/instagram.component';
@@ -41,6 +40,14 @@ import { BoutiqueComponent } from './shared/Components/boutique/boutique.compone
 import { CosmeticComponent } from './shared/Components/cosmetic/cosmetic.component';
 import { RealEstatesComponent } from './shared/homes/real-estates/real-estates.component';
 import { AuthGuard } from './auth/guards/auth.guard';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { AddressComponent } from './components/address/address.component';
+import { BlogDetailsComponent } from './Blog/blog-details/blog-details.component';
+import { CreateBlogComponent } from './Blog/create-blog/create-blog.component';
+import { EditBlogComponent } from './Blog/edit-blog/edit-blog.component';
+import { BlogComponent } from './Blog/blog/blog.component';
+import { AlcoholsComponent } from './shared/Components/alcohols/alcohols.component';
+import { MapComponent } from './components/partials/map/map.component';
 
 
 
@@ -87,10 +94,16 @@ const routes: Routes = [
   {path:'sweet',component:SweetsComponent},
   {path:'boutique',component:BoutiqueComponent},
   {path:'cosmetic',component:CosmeticComponent},
-  
+  {path:'landing-page',component:LandingPageComponent},
+  {path:'address',component:AddressComponent},
+  {path:'blog-details', component:BlogDetailsComponent},
+  {path:'create-blog',component:CreateBlogComponent},
+  {path:'edit-blog',component:EditBlogComponent},
+  {path:'alcohol',component:AlcoholsComponent},
   {path:'checkout', component: CheckoutPageComponent, canActivate:[AuthGuard]},
   {path:'payment', component: PaymentPageComponent, canActivate:[AuthGuard]},
   {path:'track/:orderId', component: OrderTrackPageComponent, canActivate:[AuthGuard]},
+  {path:'map',component:MapComponent}
 
   // { path: 'featured', loadChildren: () => import('./routes/featured/featured.module').then(m => m.FeaturedModule) }
 ];

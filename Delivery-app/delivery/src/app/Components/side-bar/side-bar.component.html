@@ -1,0 +1,16 @@
+<mat-toolbar class="mat-elevation-z3">
+    <button mat-icon-button (click)="collasped.set(!collasped())">
+        <mat-icon>menu</mat-icon>
+    </button>
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav opened mode="side" [style.width]=" sidenavwidth()">
+        <app-custom-sidebar [collasped]="collasped()"></app-custom-sidebar>
+    </mat-sidenav>
+    <mat-sidenav-content class="content" [style.margin-left]="sidenavwidth()">
+        <router-outlet></router-outlet>
+       
+       
+    </mat-sidenav-content>
+</mat-sidenav-container>
+

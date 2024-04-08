@@ -1,0 +1,177 @@
+.container{
+    background-color: #201658;
+    /* display: grid; 
+    grid-template-columns: 1fr 1fr;  */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+.left-section,
+.right-section {
+  width: 100%;
+}
+
+
+.head{
+    text-align: start;
+    padding: 20px;
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+  }
+
+   .para{
+    text-align: start;
+    font-size: 1.0rem;
+    font-weight: 200;
+    font-family: sans-serif;
+    color: white;
+    padding: 5px;
+    word-spacing: 1.5;
+    
+  }
+  .pass{
+    word-wrap: break-word;
+    text-align: start;
+    font-size: 1.0rem;
+    font-weight: 200;
+    font-family: sans-serif;
+    padding: 5px;
+    word-spacing: 1.5;
+  }
+  #btn{
+  margin-left: 10px;
+    padding-top: 10px;
+    
+  }
+  .right-section,img{
+    max-width: 100%;
+    height: auto;
+
+  }
+  .container1 {
+    display: flex;
+   
+  }
+
+  .section ,h3{
+    color: black;
+  }
+  .header{
+    color: black;
+  }
+  
+  .png{
+    height: 50px;
+    width: 50px;
+  }
+  
+  .how-it-works-container {
+    max-width: 600px;
+    margin: 40px;
+  }
+  
+  .section-heading h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .step {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  
+ 
+  .step-number {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #201658;
+    color: white;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+  }
+  
+  .step-description h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .step-description p {
+    font-size: 16px;
+    color: #333;
+  }
+  @media screen and (min-width: 768px) {
+    .container {
+      flex-direction: row;
+    }
+  
+    .left-section,
+    .right-section {
+      width: 50%;
+    }
+
+  }
+ /* Responsive styles */
+.delivery-container {
+  display: flex;
+  flex-direction: column;
+  margin: auto 40px;
+ 
+}
+
+.title-container,h1 {
+  margin-bottom: 20px;
+  margin-top: 30px;
+  padding-left: 5px;
+  font-size: 2rem;
+  color: black;
+  font-weight: 600;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.download-app-container {
+  position: relative;
+  width: 100%;
+}
+
+.download-app-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.download-app-image {
+  max-width: 10%;
+  height: auto;
+  margin-right: 20px;
+  margin-left: 0;
+}
+
+.download-app-text,h2,p {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 20px;
+}
+
+/* Add media queries for responsiveness */
+@media screen and (min-width: 768px) {
+  .delivery-container {
+    flex-direction: row;
+  }
+  
+  .title-container {
+    margin-right: 20px;
+    margin-bottom: 0; /* Remove margin bottom on larger screens */
+  }
+  
+  .download-app-container {
+    width: auto;
+  }
+}

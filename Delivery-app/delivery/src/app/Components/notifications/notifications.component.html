@@ -1,0 +1,12 @@
+<h1>notification</h1>
+<div *ngIf="(notifications$ | async) as notifications; else loading">
+    <div *ngFor="let notification of notifications">
+      <div>{{ notification.message }}</div>
+      <div>{{ notification.timestamp | date }}</div>
+    </div>
+    <button (click)="clearNotifications()">Clear Notifications</button>
+  </div>
+  
+  <ng-template #loading>
+    <div>Loading notifications...</div>
+  </ng-template>

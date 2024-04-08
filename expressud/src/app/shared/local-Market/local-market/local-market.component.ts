@@ -16,12 +16,11 @@ export class LocalMarketComponent {
     let supersObservalbe:Observable<Super[]>;
     activatedRoute.params.subscribe((params) => {
       if (params.searchTerm)
-        supersObservalbe = this.supermarketService.getAllsupersBySearchTerm(params.searchTerm);
+        supersObservalbe = this.supermarketService.getAllSupersBySearchTerm(params.searchTerm);
       else if (params.tag)
-        supersObservalbe = this.supermarketService.getAllsupersByTag(params.tag);
+        supersObservalbe = this.supermarketService.getAllSupersByTag(params.tag);
       else
-        supersObservalbe = supermarketService.getAll();
-
+        supersObservalbe = supermarketService.getAll()
         supersObservalbe.subscribe((serverSupers) => {
           this.supers = serverSupers;
         })

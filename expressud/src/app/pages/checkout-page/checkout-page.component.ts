@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { CartService } from 'src/app/services/cart.service';
-import { OrderService } from 'src/app/services/order.service';
-import { UserService } from 'src/app/services/user.service';
-import { Order } from 'src/app/shared/models/Order';
+import { Order } from 'src/app/Shared1/models/Order';
+import { CartService } from 'src/app/Services/cart.service';
+import { OrderService } from 'src/app/Services/order.service';
+import { UserService } from 'src/app/Services/user.service';
 
 @Component({
   selector: 'app-checkout-page',

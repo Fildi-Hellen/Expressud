@@ -1,0 +1,40 @@
+
+<app-search></app-search>
+<app-tags></app-tags> 
+<app-not-found
+[visible]="!Alcohols || !Alcohols.length"
+resetLinkText="Reset Search">
+</app-not-found>
+<ul>
+  <li *ngFor="let alcohol of Alcohols">
+    <a routerLink="/alcohol/{{alcohol.id}}">
+      
+      <img [src]="alcohol.imageUrl" [alt]="alcohol.name" />
+      <div class="content">
+        <div class="name">
+          {{alcohol.name}}
+        </div>
+        <span class="favorite {{alcohol.favorite?'':'not'}}">
+          ❤
+        </span>
+        <div class="stars">
+          <star-rating [stars]="alcohol.stars" />
+        </div>
+        <div class="product-item-footer">
+          <div class="origins">
+            <span *ngFor="let origin of alcohol.origins">
+              {{origin}}
+            </span>
+          </div>
+        </div>
+
+        <div class="price">
+          <span>
+            {{alcohol.price | currency}}
+          </span>
+        </div>
+      </div>
+    </a>
+  </li>
+</ul>
+

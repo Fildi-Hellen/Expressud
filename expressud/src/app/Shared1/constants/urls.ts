@@ -1,6 +1,7 @@
 import { environment } from "src/environments/environment";
 
-const BASE_URL = environment.production? '' : 'http://localhost:5000';
+const BASE_URL = environment.production ? '' : 'http://localhost:5000';
+export const API_BASE_URL = environment.production ? 'https://your-production-backend-url' : 'http://localhost:5000';
 
 export const FOODS_URL = BASE_URL + '/api/foods';
 export const FOODS_TAGS_URL = FOODS_URL + '/tags';
@@ -28,6 +29,12 @@ export const BAKERYS_TAGS_URL = BAKERYS_URL + '/tags';
 export const BAKERYS_BY_SEARCH_URL = BAKERYS_URL + '/search/';
 export const BAKERYS_BY_TAG_URL = BAKERYS_URL + '/tag/';
 export const BAKERY_BY_ID_URL = BAKERYS_URL + '/';
+
+export const ALCOHOLS_URL = BASE_URL + '/api/alcohols';
+export const ALCOHOLS_TAGS_URL = ALCOHOLS_URL + '/tags';
+export const ALCOHOLS_BY_SEARCH_URL = ALCOHOLS_URL + '/search/';
+export const ALCOHOLS_BY_TAG_URL = ALCOHOLS_URL + '/tag/';
+export const ALCOHOL_BY_ID_URL = ALCOHOLS_URL + '/';
 
 
 export const COSMETICS_URL = BASE_URL + '/api/cosmetics';

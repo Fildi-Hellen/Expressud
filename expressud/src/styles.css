@@ -110,7 +110,7 @@ ol {
 }
 
 .section-title span {
-	color: #e53637;
+	color: #201658;
 	font-size: 14px;
 	font-weight: 700;
 	text-transform: uppercase;
@@ -158,7 +158,7 @@ ol {
     letter-spacing: 2.5px;
     font-weight: 500;
     color: white;
-    background-color:black;
+    background-color:#201658;
     border: none;
     border-radius: 45px;
     font-family: 'Playfair Display', serif;
@@ -186,14 +186,14 @@ ol {
 	text-transform: uppercase;
 	padding: 14px 30px;
 	color: #ffffff;
-	background: #000000;
+	background: #201658;
 	letter-spacing: 4px;
 }
 
 .site-btn {
 	font-size: 14px;
 	color: #ffffff;
-	background: #111111;
+	background: #201658;
 	font-weight: 700;
 	border: none;
 	text-transform: uppercase;
@@ -233,7 +233,7 @@ a{
 	0% {
 		-webkit-transform: rotate(0deg);
 		transform: rotate(0deg);
-		border: 4px solid #f44336;
+		border: 4px solid blue;
 		border-left-color: transparent;
 	}
 	50% {
@@ -245,7 +245,7 @@ a{
 	100% {
 		-webkit-transform: rotate(360deg);
 		transform: rotate(360deg);
-		border: 4px solid #f44336;
+		border: 4px solid blue;
 		border-left-color: transparent;
 	}
 }
@@ -253,7 +253,7 @@ a{
 @-webkit-keyframes loader {
 	0% {
 		-webkit-transform: rotate(0deg);
-		border: 4px solid #f44336;
+		border: 4px solid blue;
 		border-left-color: transparent;
 	}
 	50% {
@@ -263,7 +263,7 @@ a{
 	}
 	100% {
 		-webkit-transform: rotate(360deg);
-		border: 4px solid #f44336;
+		border: 4px solid blue;
 		border-left-color: transparent;
 	}
 }
@@ -553,7 +553,7 @@ a{
 }
 
 .shop__sidebar__color label.c-8 {
-	background: #ed1c24;
+	background: #201658;
 }
 
 .shop__sidebar__color label.c-9 {

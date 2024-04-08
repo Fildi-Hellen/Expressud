@@ -1,4 +1,5 @@
 <!-- Header Section Begin -->
+
 <header class="header">
     <div class="header__top">
         <div class="container">
@@ -8,16 +9,30 @@
                 <div class="col-lg-6 col-md-5">
                     <div class="header__top__right">
                         <div class="header__top__links">
-                            <a href="#">Sign in</a>
-                            <a routerLink="/faq">FAQs</a>
+                            <div class="container">
+                            <nav>
+                                <ul>
+                                  <li *ngIf="!isAuth">
+                                    <a routerLink="/login">Login</a>
+                                  </li>
+                                  <li *ngIf="isAuth" class="menu-container">
+                                    <a routerLink="/dashboard">{{user.name}}</a>
+                                    <div class="menu">
+                                      <a routerLink="/profile">Profile</a>
+                                      <a routerLink="/orders">Orders</a>
+                                      <a (click)="logout()">Logout</a>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <a routerLink="/cart-page">
+                                        <img src="assets/img/icon/cart.png" alt=""><span *ngIf="cartQuantity">{{cartQuantity}}</span>
+                                    </a>
+                                  </li>
+                                </ul>
+                            </nav>
                         </div>
-                        <div class="header__top__hover">
-                            <span>Usd <i class="arrow_carrot-down"></i></span>
-                            <ul>
-                                <li>SSP</li>
-                                <li>USD</li>
-                            </ul>
                         </div>
+                        <a routerLink="/faq">FAQs</a>
                     </div>
                 </div>
             </div>
@@ -50,16 +65,12 @@
                     </ul>
                 </nav>
             </div>
-            <div class="col-lg-3 col-md-3">
+            <!-- <div class="col-lg-3 col-md-3">
                 <div class="header__nav__option">
-                    <a href="#" class="search-switch"><img src="assets/img/icon/search.png" alt=""></a>
-                    <a href="#"><img src="assets/img/icon/heart.png" alt=""></a>
-                    <a href="#"><img src="assets/img/icon/cart.png" alt=""> <span>0</span></a>
-                    <div class="price">$0.00</div>
+                    <app-search></app-search>
                 </div>
-            </div>
+            </div> -->
         </div>
-        <div class="canvas__open"><i class="fa fa-bars"></i></div>
     </div>
   </header>
 

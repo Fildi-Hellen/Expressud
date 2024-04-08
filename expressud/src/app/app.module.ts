@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import  {HomeComponent} from './components/home/home.component';
-import { BlogComponent } from './components/blog/blog.component';
 import { InstagramComponent } from './components/instagram/instagram.component';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
@@ -33,7 +32,6 @@ import { PrivacyPolicyComponent } from './help/privacy-policy/privacy-policy.com
 import { ContactComponent } from './components/contact/contact.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { ContactService } from './contact.service';
-import { IonicModule } from '@ionic/angular';
 import { AboutUsComponent } from './about/about-us/about-us.component';
 import { AboutUsContentComponent } from './about/about-us-content/about-us-content.component';
 import { AboutUsDescriptionComponent } from './about/about-us-description/about-us-description.component';
@@ -73,6 +71,15 @@ import { BoutiqueComponent } from './shared/Components/boutique/boutique.compone
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { LoadingInterceptor } from './Shared1/interceptors/loading.interceptor';
 import { TitleComponent } from './components/partials/title/title.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { AddressComponent } from './components/address/address.component';
+import { BlogComponent } from './Blog/blog/blog.component';
+import { BlogDetailsComponent } from './Blog/blog-details/blog-details.component';
+import { CreateBlogComponent } from './Blog/create-blog/create-blog.component';
+import { EditBlogComponent } from './Blog/edit-blog/edit-blog.component';
+import { AlcoholsComponent } from './shared/Components/alcohols/alcohols.component';
+;
+
 
 
 
@@ -83,7 +90,6 @@ import { TitleComponent } from './components/partials/title/title.component';
     HeaderComponent,
     HeroComponent,
     BannerComponent,
-    BlogComponent,
     CategoriesComponent,
     InstagramComponent,
     ProductComponent,
@@ -130,7 +136,15 @@ import { TitleComponent } from './components/partials/title/title.component';
     BakeryComponent,
     RealEstatesComponent,
     BoutiqueComponent,
-    TitleComponent
+    TitleComponent,
+    LandingPageComponent,
+    AddressComponent,
+    BlogComponent,
+    BlogDetailsComponent,
+    CreateBlogComponent,
+    EditBlogComponent,
+    AlcoholsComponent,
+    MapComponent
 
   ],
 
@@ -156,7 +170,7 @@ import { TitleComponent } from './components/partials/title/title.component';
       positionClass:'toast-bottom-right',
       newestOnTop:false
     })
-    //  IonicModule.forRoot()
+  
      
     
   ],

@@ -1,151 +1,4 @@
-/* .contact{background-color: gray}
-  
-  .contact .container {
-    display: grid;
-    gap: 48px;
 
-  }
-  label{color: black;font: bold 500;}
-  
-  .contact-form {
-    background-color: white;
-    padding: 25px;
-    border-radius: 20px;
-  }
-  #contact-label{text-transform: uppercase;font-family: serif; padding: 5px;}
-  
-  .contact-text { margin-block: 5px 30px; }
-  
-  .contact .label { margin-block-end: 8px; }
-
-  .input-field {
-    padding: 10px 12px;
-    border: 1px solid black;
-    margin-block-end: 24px;
-    outline: none;
-    border-radius: 10px;
-    transition: box-shadow var(--transition-1);
-  }
-  .item-icon{background-color: royalblue;border-radius: 20px;}
-  .input-field:focus { box-shadow: inset 0 0 0 1px var(--jet); }
-   
-  
-  .error-message {
-    color: red;
-    font-size: 1.5rem;
-    margin-top: 4px;
-  }
-  textarea {
-    resize: vertical;
-    min-height: 100px;
-    max-height: 150px;
-  }
-  
-  
-  .contact-list .contact-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
-  }
-  .contact-item address,a{font-size: 20px;}
-  
-  .contact-list .contact-item:not(:last-child) { margin-block-end: 35px; }
-  
-  .contact-list .item-icon {
-    color: var(--jet);
-    width: 55px;
-    height: 55px;
-    display: grid;
-    place-items: center;
-    flex-shrink: 0;
-  }
-  
-  .contact-list .item-icon ion-icon { font-size: 2.5rem; }
-  
-  .contact .label-lg {
-    color: var(--white_a80);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: var(--fw-400);
-    margin-block-end: 5px;
-  }
-  
-  .contact .body-lg {
-    color: var(--white);
-    word-break: break-all;
-  }
-  .info{
-    text-align: center;
-    text-transform: uppercase;
-    padding: 20px;
-    color: black;
-    font: serif 400 bold;
-    font-family: serif; 
-
-  }
-  
-  input{font-family: 'Noto Sans', sans-serif;
-  }
-  
-  .tem {
-    display: flex; 
-    align-items: center;
-    justify-content: center;
-    padding: 10px ;
-    
-  }
-  
-  .tem ion-icon {
-    margin-right: 20px; 
-    font-size: 30px;
-    
-  }
-  
-  button { cursor: pointer; }
-  .contact-content{background-color: white; border-radius: 20px;}
-  
-  .title-lg{font-size: 3rem;
-    font-family: serif;
-    font-weight: 700;}
-
-    
-  
-  @keyframes fly-1 {
-    from {
-      transform: translateY(0.1em);
-    }
-  
-    to {
-      transform: translateY(-0.1em);
-    }
-  }
-  
-  
-  @media (min-width: 768px) {
-  
-    .contact-form { padding: 35px; }
-  
-    .wrapper {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-  
-  }
-  
-  @media (min-width: 992px) {
-  
-    .contact .container {
-      grid-template-columns: 1fr 0.9fr;
-      align-items: center;
-      gap: 20px;
-    }
-  
-    .contact-content {
-      width: 70%;
-      margin-inline: auto;
-    }
-  } */
   @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap");
   @import "~@fortawesome/fontawesome-free/css/all.css";
 
@@ -219,7 +72,7 @@
   flex-direction: column;
   font-weight: 300;
 }
-.container .contactInfo .box .text, h3{
+.container .contactInfo .box .text h3{
   font-weight: 500;
   color: #00bcd4;
 }
@@ -228,13 +81,18 @@
 }
 .contactform{
   width: 40%;
-  padding: 40px;
+  padding: 80px;
   background: #fff;
+  box-sizing: border-box; /* Ensure padding is included in the width calculation */
+  overflow: hidden; /* Prevent the form from expanding */
 }
+
+
 .contactform h2{
   font-size: 30px;
   color: #333;
   font-weight: 500;
+  margin-bottom: 20px;
 }
 .contactform .inputBox{
   position: relative;
@@ -252,6 +110,7 @@
   border-bottom: 2px solid #333;
   outline: none;
   resize: none;
+  box-sizing: border-box;
 }
 .contactform .inputBox span{
   position: absolute;

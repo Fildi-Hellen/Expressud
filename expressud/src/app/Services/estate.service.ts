@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import {Real} from 'src/app/Shared1/models/real'
 import { Tag } from '../Shared1/models/Tag';
 //import{sample_reals,sample_tags} from 'src/estate';
-import { REALS_URL, REALS_BY_SEARCH_URL, REALS_TAGS_URL, REALS_BY_TAG_URL, REAL_BY_ID_URL } from '../shared1/constants/urls';
+import { REALS_URL, REALS_BY_SEARCH_URL, REALS_TAGS_URL, REALS_BY_TAG_URL, REAL_BY_ID_URL } from '../Shared1/constants/urls';
 
 @Injectable({
   providedIn: 'root'

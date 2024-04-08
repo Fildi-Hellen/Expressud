@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { OrderService } from 'src/app/services/order.service';
+import { OrderService } from 'src/app/Services/order.service';
 import { Order } from 'src/app/Shared1/models/Order';
 
 @Component({

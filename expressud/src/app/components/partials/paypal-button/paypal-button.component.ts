@@ -1,8 +1,8 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { CartService } from 'src/app/services/cart.service';
-import { OrderService } from 'src/app/services/order.service';
+import { CartService } from 'src/app/Services/cart.service';
+import { OrderService } from 'src/app/Services/order.service';
 import { Order } from 'src/app/Shared1/models/Order';
 
 //window.paypal

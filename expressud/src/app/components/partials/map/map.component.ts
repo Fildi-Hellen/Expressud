@@ -29,6 +29,7 @@ export class MapComponent implements OnChanges {
 
   constructor(private locationService: LocationService) { }
 
+  
   ngOnChanges(): void {
     if(!this.order) return;
     this.initializeMap();

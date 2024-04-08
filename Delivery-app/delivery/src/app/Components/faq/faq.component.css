@@ -1,0 +1,42 @@
+.faq-accordion {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .mat-expansion-panel-header {
+    background-color: #f5f5f5;
+  }
+  
+  .mat-expansion-panel-header-title {
+    font-weight: bold;
+    font-size: 20px;
+  }
+  h1{
+    text-align: start;
+    padding: 20px;
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: 'Times New Roman', Times, serif;
+   
+  }
+  p{
+    text-align: start;
+    font-size: 1.0rem;
+    font-weight: 200;
+    font-family: sans-serif;
+    padding: 20px;
+    word-spacing: 1.5;
+  }
+  .mat-accordion-container {
+    width: 100%;
+    max-width: 1200px; /* Adjust max-width as needed */
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .mat-accordion-container {
+      padding: 0 10px;
+    }
+  }
+  

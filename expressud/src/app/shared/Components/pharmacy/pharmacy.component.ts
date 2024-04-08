@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PharmacyService } from 'src/app/Services/pharmacy.service'
 import { ActivatedRoute } from '@angular/router';
-import { pharm } from 'src/app/Shared1/models/pharm';
+import { Pharm } from 'src/app/Shared1/models/pharm';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -11,9 +11,9 @@ import { Observable } from 'rxjs';
   styleUrls: ['./pharmacy.component.css']
 })
 export class PharmacyComponent implements OnInit{
-  pharms: pharm[] = [];
+  pharms: Pharm[] = [];
   constructor(private pharmacyService: PharmacyService, activatedRoute: ActivatedRoute) {
-    let PharmsObservalbe:Observable<pharm[]>;
+    let PharmsObservalbe:Observable<Pharm[]>;
     activatedRoute.params.subscribe((params) => {
       if (params.searchTerm)
         PharmsObservalbe = this.pharmacyService.getAllPharmsBySearchTerm(params.searchTerm);

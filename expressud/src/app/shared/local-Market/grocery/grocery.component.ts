@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MaeService } from 'src/app/Services/mae.service';
-import {market} from 'src/app/Shared1/models/market';
+import {Market} from 'src/app/Shared1/models/market';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -10,9 +10,9 @@ import { Observable } from 'rxjs';
   styleUrls: ['./grocery.component.css']
 })
 export class GroceryComponent implements OnInit {
-  markets: market[] = [];
+  markets: Market[] = [];
   constructor(private maeService: MaeService, activatedRoute: ActivatedRoute) {
-    let marketsObservalbe:Observable<market[]>;
+    let marketsObservalbe:Observable<Market[]>;
     activatedRoute.params.subscribe((params) => {
       if (params.searchTerm)
         marketsObservalbe = this.maeService.getAllMarketsBySearchTerm(params.searchTerm);

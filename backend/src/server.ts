@@ -17,8 +17,9 @@ import pharmaciRouter from './routers/pharmaci.router';
 import shopRouter from './routers/shop.router';
 import supermarketRouter from './routers/supermarket.router';
 import wigRouter from './routers/wig.router';
+import blogRouter from './routers/blog.router';
+import alcoholRouter from './routers/alcohol.router';
 dbConnect();
-
 
 const app = express();
 app.use(express.json());
@@ -40,10 +41,12 @@ app.use("/api/sweets", shopRouter);
 app.use("/api/supermarkets", supermarketRouter);
 app.use("/api/hairs", wigRouter);
 app.use("/api/orders", orderRouter);
+app.use("/api/blog",blogRouter);
+app.use("/api/alcohol",alcoholRouter);
 
-app.use(express.static('public'));
+app.use(express.static('Public'));
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname,'public', 'index.html'))
+    res.sendFile(path.join(__dirname,'public', 'index.html'));
 })
 
 const port = process.env.PORT || 5000;
