@@ -1,0 +1,19 @@
+
+<form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+  <div>
+    <h1>Tell Us What You Think:☺☺</h1>
+    <label for="comment">Comment:</label>
+    <textarea id="comment" formControlName="comment" rows="4"></textarea>
+    <div *ngIf="feedbackForm.get('comment')?.invalid && feedbackForm.get('comment')?.touched">
+      Comment is required.
+    </div>
+  </div>
+  <div>
+    <label for="rating">Rating:</label>
+    <input id="rating" formControlName="rating" type="number" min="1" max="5">
+    <div *ngIf="feedbackForm.get('rating')?.invalid && feedbackForm.get('rating')?.touched">
+      Rating is required.
+    </div>
+  </div>
+  <button type="submit" [disabled]="feedbackForm.invalid" id="btn">Send</button>
+</form>

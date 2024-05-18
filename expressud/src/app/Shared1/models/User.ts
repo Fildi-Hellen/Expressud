@@ -4,5 +4,6 @@ export class User{
   name!:string;
   address!:string;
   token!:string;
+  roles!: string[];
   isAdmin!:boolean;
 }

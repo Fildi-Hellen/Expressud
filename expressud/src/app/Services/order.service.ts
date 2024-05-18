@@ -2,30 +2,36 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Order } from '../Shared1/models/Order';
-import { ORDER_CREATE_URL, ORDER_NEW_FOR_CURRENT_USER_URL, ORDER_PAY_URL, ORDER_TRACK_URL } from '../Shared1/constants/urls';
+import { environment } from 'src/environments/environment'; // Import environment for API URL
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
 
+  private API_URL = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 
-  create(order:Order){
-    return this.http.post<Order>(ORDER_CREATE_URL, order);
+  create(order: Order): Observable<Order> {
+    return this.http.post<Order>(`${this.API_URL}/orders/create`, order);
+  }
+  
+
+  getNewOrderForCurrentUser(): Observable<Order> {
+    return this.http.get<Order>(`${this.API_URL}/orders/newForCurrentUser`);
   }
 
-  getNewOrderForCurrentUser():Observable<Order>{
-    return this.http.get<Order>(ORDER_NEW_FOR_CURRENT_USER_URL);
+  
+  pay(order: Order): Observable<string> {
+    return this.http.post<string>(`${this.API_URL}/orders/pay`, order);
   }
 
-  pay(order:Order):Observable<string>{
-    return this.http.post<string>(ORDER_PAY_URL,order);
+  trackOrderById(id: number): Observable<Order> {
+    return this.http.get<Order>(`${this.API_URL}/orders/track/${id}`);
   }
-
-  trackOrderById(id:number): Observable<Order>{
-    return this.http.get<Order>(ORDER_TRACK_URL + id);
+  getOrderDetails(orderId: number): Observable<Order> {
+    return this.http.get<Order>(`${this.API_URL}}/${orderId}`);
   }
-
 }
+

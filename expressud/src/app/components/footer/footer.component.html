@@ -1,4 +1,5 @@
 
+
 <footer class="footer">
     <div class="container">
         <div class="row">
@@ -7,18 +8,45 @@
                     <div class="footer__logo">
                         <a href="#"><img src="assets/img/logo.png" alt=""></a>
                     </div>
-                    <p>The customer is at the heart of our unique business model, which includes design.</p>
-                    <a href="#"><img src="assets/img/payment.png" alt=""></a>
+                    <p>The customer is at the heart of our unique business model.</p>
+                    <div class="footer-img">
+                      
+                            <div>
+                                <a [href]="facebookUrl" target="_blank"> 
+                                    <img src="assets/img/icon/facebook.png" alt="Instagram">
+                                </a>
+                            </div>
+                            
+                     
+                       
+                            <div>
+                                <a [href]="instagramUrl" target="_blank"> 
+                                    <img src="assets/img/icon/instagram.png" alt="Instagram">
+                                </a>
+                            </div>
+                            
+                     
+                            <div>
+                                <a [href]="linkedinUrl" target="_blank"> 
+                                    <img src="assets/img/icon/linkedin.png" alt="Instagram">
+                                </a>
+                            </div>
+                            
+                     
+                      
+                    </div>
+                   
                 </div>
             </div>
             <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
                 <div class="footer__widget">
                     <h6>Services</h6>
                     <ul>
-                        <li><a href="#"> Contact us</a></li>
-                        <li><a href="#">sign up</a></li>
-                        <li><a href="#">Payment Methods</a></li>
-                        <li><a href="#">Delivery</a></li>
+                        <li><a routerLink="/contact"> Contact us</a></li>
+                        <li><a routerLink="/register">sign up</a></li>
+                        <li><a routerLink="/admin">Expressud</a></li>
+                        <li><a routerLink="/hero-driver">Delivery</a></li>
+                        <li><a routerLink="/dashboard">Vendors</a></li>
                         
                     </ul>
                 </div>
@@ -27,7 +55,7 @@
                 <div class="footer__widget">
                     <h6>Aide</h6>
                     <ul>
-                        <li><a routerLink="/contact" routerLinkActive="active">Contact Us</a></li>
+                        <li><a routerLink="/about-us" routerLinkActive="active">About Us</a></li>
                         <li><a href="#">Return & Exchanges</a></li>
                         <li><a routerLink="/faq" >FAQ</a></li> 
                         <li><a routerLink="/privacy-policy">Privacy Policy</a></li>

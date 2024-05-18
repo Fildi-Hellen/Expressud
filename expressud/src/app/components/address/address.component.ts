@@ -5,67 +5,45 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './address.component.html',
   styleUrls: ['./address.component.css']
 })
-export class AddressComponent implements OnInit {
+export class AddressComponent  {
   userAddress!: string;
-  errorOccurred: any;
 
-  ngOnInit() {
-    this.detectUserLocation();
-  }
-
-  detectUserLocation() {
+  getUserLocation(): void {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
-        position => {
-          this.getAddressFromCoordinates(position.coords.latitude, position.coords.longitude);
-        },
-        error => {
-          console.error('Error getting user location:', error);
-          // Handle error, show user-friendly message, etc.
-        }
+        this.successCallback.bind(this),
+        this.errorCallback.bind(this)
       );
     } else {
-      console.error('Geolocation is not supported by this browser.');
-      // Handle unsupported browser, show user-friendly message, etc.
+      console.error("Geolocation is not supported by this browser.");
     }
   }
 
-  getAddressFromCoordinates(latitude: number, longitude: number) {
-    // Use your preferred method (e.g., calling a backend API) to convert coordinates to address
-    // For demonstration purposes, let's assume you have a method called getAddressFromAPI
-    // that takes latitude and longitude as parameters and returns an address
-    // This is just a placeholder method, you need to implement it according to your backend or service
-    this.getAddressFromAPI(latitude, longitude)
-      .then(address => {
+  successCallback(position: GeolocationPosition): void {
+    const latitude: number = position.coords.latitude;
+    const longitude: number = position.coords.longitude;
+
+    // Perform reverse geocoding
+    fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyBWp5W006BrypJCT8hWRsQkwv3QLVIf5ME`)
+      .then(response => response.json())
+      .then((data: any) => {
+        // Extract address components from the response
+        const addressComponents = data.results[0].address_components;
+
+        // Construct the address string
+        let address: string = "";
+        for (let i = 0; i < addressComponents.length; i++) {
+          address += addressComponents[i].long_name + ", ";
+        }
+        address = address.slice(0, -2); // Remove the trailing comma and space
+
+        // Update userAddress with the obtained address
         this.userAddress = address;
       })
-      .catch(error => {
-        console.error('Error getting address from coordinates:', error);
-        // Handle error, show user-friendly message, etc.
-      });
+      .catch(error => console.error("Error fetching address: ", error));
   }
 
-  getAddressFromAPI(latitude: number, longitude: number): Promise<string> {
-    // Implement your API call to get address from coordinates here
-    // This is just a placeholder function, you need to replace it with your actual API call
-    // For example, you can use services like Google Maps Geocoding API
-    // Replace 'YOUR_API_KEY' with your actual API key
-    const apiKey = 'YOUR_API_KEY';
-    const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${apiKey}`;
-
-    return fetch(url)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Unable to fetch address.');
-        }
-        return response.json();
-      })
-      .then(data => {
-        if (data.results && data.results.length > 0) {
-          return data.results[0].formatted_address;
-        } else {
-          throw new Error('No address found.');
-        }
-      });
+  errorCallback(error: GeolocationPositionError): void {
+    console.error("Error getting user's location: ", error.message);
   }
 }

@@ -1,40 +1,44 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-//import {sample_foods,sample_tags} from 'src/data';
-import { FOODS_BY_SEARCH_URL,FOODS_URL,FOODS_BY_TAG_URL,FOOD_BY_ID_URL,FOODS_TAGS_URL } from '../Shared1/constants/urls';
-import {Food} from 'src/app/Shared1/models/Food'
-import { Tag } from '../Shared1/models/Tag';
+import { Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FoodService {
-  constructor(private http:HttpClient) { }
+  apiEndPoint: string = 'http://127.0.0.1:8000/api';
 
-  getAll(): Observable<Food[]> {
-    return this.http.get<Food[]>(FOODS_URL);
-  }
+  constructor(private http: HttpClient) { }
 
-  getAllFoodsBySearchTerm(searchTerm: string) {
-    return this.http.get<Food[]>(FOODS_BY_SEARCH_URL + searchTerm);
-  }
-
-  getAllTags(): Observable<Tag[]> {
-    return this.http.get<Tag[]>(FOODS_TAGS_URL);
-  }
-
-  getAllFoodsByTag(tag: string): Observable<Food[]> {
-    return tag === "All" ?
-      this.getAll() :
-      this.http.get<Food[]>(FOODS_BY_TAG_URL + tag);
-  }
-
-  getFoodById(foodId:string):Observable<Food>{
-    return this.http.get<Food>(FOOD_BY_ID_URL + foodId);
+  getAllFoods(): Observable<any> {
+    return this.http.get(this.apiEndPoint + "/foods");
   }
   
 
+  GetRestaurantServingByCategoryId(foodCategoryId: number): Observable<any> {
+    return this.http.get(this.apiEndPoint + 'GetRestaurantServingByCategoryId?categoryId=' + foodCategoryId)
+  }
+
+  GetFoodItemOfRestaurantByCategory(restaurantId: number, categoryId:number):Observable<any> {
+    return this.http.get(this.apiEndPoint + 'GetFoodItemOfRestaurantByCategory?restaurantId='+restaurantId+'&categoryId='+categoryId)
+  } 
+
+
+  onRegister(obj: any) : Observable<any> {
+   return this.http.post(this.apiEndPoint + "AddNewUser",obj );
+  }
+  onLogin(obj: any) : Observable<any> {
+    return this.http.post(this.apiEndPoint + "login",obj );
+   }
+   addtocart(obj: any) : Observable<any> {
+    return this.http.post(this.apiEndPoint + "addtocart",obj );
+   }
+
+   GetCartItemsByCustomerIdForRestaurant(custId: number,resId: number) {
+    return this.http.get(this.apiEndPoint + 'GetCartItemsByCustomerIdForRestaurant?customerId='+custId+'&restaurantId='+resId)
+   }
+   placeOrder(obj: any) : Observable<any> {
+    return this.http.post(this.apiEndPoint + "addneworder",obj );
+   }
+   
 }
-
-

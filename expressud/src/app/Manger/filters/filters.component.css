@@ -1,0 +1,62 @@
+.filter-container {
+    text-align: center; /* Align content to the center */
+    padding: 20px; /* Add padding around the container */
+    font-family: Arial, sans-serif; /* Set font family */
+    margin: 0 auto; /* Center the container horizontally */
+  }
+  
+  .filter-container label {
+    display: block; /* Display labels as block elements */
+    margin-bottom: 10px; /* Add spacing between labels */
+  }
+  
+  .filter-container select,
+  .filter-container button {
+    margin-bottom: 10px; /* Add spacing between select boxes and buttons */
+    padding: 8px ; /* Add padding to select boxes and buttons */
+    font-size: 16px; /* Set font size for select boxes and buttons */
+    margin-left: 10px;
+  }
+  .btn{
+   
+    padding: 1.3em 3em;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: white;
+    border: none;
+    margin: 20px;
+    border-radius: 45px;
+    font-family: 'Playfair Display', serif;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .btn:hover {
+    background-color: #6c6d6c;
+    box-shadow: 0px 15px 20px #7071E8;
+    color: #fff;
+    transform: translateY(-7px);
+  }
+  
+  .btn:active {
+    transform: translateY(-1px);
+  }
+
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .filter-container {
+      padding: 10px; /* Adjust padding for smaller screens */
+    }
+  
+    .filter-container select,
+    .filter-container button {
+      display: block; /* Display select boxes and buttons as block elements */
+      width: 100%; /* Make select boxes and buttons full width */
+      margin-bottom: 15px; /* Adjust spacing for smaller screens */
+    }
+  }
+  

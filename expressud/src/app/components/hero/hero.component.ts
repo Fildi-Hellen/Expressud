@@ -10,10 +10,10 @@ export class HeroComponent implements AfterViewInit {
   @ViewChild(SlickCarouselComponent) slickModal: SlickCarouselComponent | undefined;
 
   slides = [
-    { img: "assets/img/mobile.webp" },
-    { img: "assets/img/fast.jpg" },
-    { img: "assets/img/home.jpeg" },
-    {img: "assets/img/venue.jpg"}
+    { img: "assets/img/blog/bag.webp" },
+    { img: "assets/img/blog/home.jpg" },
+    // { img: "assets/img/home.jpeg" },
+    {img: "assets/img/instagram/boutiques.jpg"}
   ];
   
 

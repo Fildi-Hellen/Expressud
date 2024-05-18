@@ -9,34 +9,26 @@
                 <div class="col-lg-6 col-md-5">
                     <div class="header__top__right">
                         <div class="header__top__links">
-                            <div class="container">
-                            <nav>
-                                <ul>
-                                  <li *ngIf="!isAuth">
-                                    <a routerLink="/login">Login</a>
-                                  </li>
-                                  <li *ngIf="isAuth" class="menu-container">
-                                    <a routerLink="/dashboard">{{user.name}}</a>
-                                    <div class="menu">
-                                      <a routerLink="/profile">Profile</a>
-                                      <a routerLink="/orders">Orders</a>
-                                      <a (click)="logout()">Logout</a>
-                                    </div>
-                                  </li>
-                                  <li>
-                                    <a routerLink="/cart-page">
-                                        <img src="assets/img/icon/cart.png" alt=""><span *ngIf="cartQuantity">{{cartQuantity}}</span>
-                                    </a>
-                                  </li>
-                                </ul>
-                            </nav>
-                        </div>
+                                <!-- <ul>
+                                    <li *ngIf="!isAuth">
+                                        <a routerLink="/login">Login</a>
+                                      </li>
+                                      <li *ngIf="isAuth" class="menu-container">
+                                        <a routerLink="/dashboard">{{user.name}}</a>
+                                        <div class="menu">
+                                          <a routerLink="/profile">Profile</a>
+                                          <a routerLink="/orders">Orders</a>
+                                          <a (click)="logout()">Logout</a>
+                                        </div>
+                                      </li>
+                                </ul> -->
                         </div>
                         <a routerLink="/faq">FAQs</a>
                     </div>
                 </div>
             </div>
         </div>
+        
     </div>
     <div class="container">
         <div class="row">
@@ -51,10 +43,10 @@
                         <li ><a routerLink="/home" routerLinkActive="active" >Home</a></li>
                         
                         <li><a routerLink="/blog" routerLinkActive="active">Blog</a></li>
-                        <li><a href="#">Pages</a>
+                        <li><a href="#">Catergories</a>
                             <ul class="dropdown">
-                                <li><a routerLink="/about-us" routerLinkActive="active">About Us</a></li>
-                                <li><a routerLink="/resturants" routerLinkActive="active">Resturants </a></li>
+                                <li><a routerLink="/alcohol" routerLinkActive="active">Alcohol</a></li>
+                                <li><a routerLink="/foods" routerLinkActive="active">Resturants </a></li>
                                 <li><a routerLink="/pharmacy" routerLinkActive="active">Pharmacies</a></li>
                                 <li><a routerLink="/grocery" routerLinkActive="active">Grocery</a></li>
                                 <li><a routerLink="/bus" routerLinkActive="active">Courier</a></li>
@@ -65,11 +57,13 @@
                     </ul>
                 </nav>
             </div>
-            <!-- <div class="col-lg-3 col-md-3">
+             <div class="col-lg-3 col-md-3">
                 <div class="header__nav__option">
-                    <app-search></app-search>
+                     <a routerLink="/cart-page">
+                                        <img src="assets/img/icon/shopping-cart.png" alt=""><span *ngIf="cartQuantity">{{cartQuantity}}</span>
+                                    </a> 
                 </div>
-            </div> -->
+            </div> 
         </div>
     </div>
   </header>

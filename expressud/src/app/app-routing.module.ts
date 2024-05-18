@@ -11,8 +11,6 @@ import { BannerComponent } from './components/banner/banner.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { HeaderComponent } from './components/header/header.component';
 import { BusComponent } from './shared/courier/bus/bus.component';
-import { GroceryComponent } from './shared/local-Market/grocery/grocery.component';
-import { PharmacyComponent } from './shared/Components/pharmacy/pharmacy.component';
 import { FaqComponent } from './help/faq/faq.component';
 import { PrivacyPolicyComponent } from './help/privacy-policy/privacy-policy.component';
 import { AboutUsComponent } from './about/about-us/about-us.component';
@@ -22,23 +20,6 @@ import { AboutUsDescriptionComponent } from './about/about-us-description/about-
 import { ServiceSectionComponent } from './shared/courier/service-section/service-section.component';
 import { FormComponent } from './shared/courier/form/form.component';
 import { HeroCourierComponent } from './shared/courier/hero-courier/hero-courier.component';
-import { ResturantsComponent } from './components/partials/resturants/resturants.component';
-import { LocalMarketComponent } from './shared/local-Market/local-market/local-market.component';
-import { NotFoundComponent } from './components/partials/not-found/not-found.component';
-import { CartPageComponent } from './pages/cart-page/cart-page.component';
-import { FoodPageComponent } from './pages/food-page/food-page.component';
-import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.component';
-import { OrderTrackPageComponent } from './pages/order-track-page/order-track-page.component';
-import { PaymentPageComponent } from './pages/payment-page/payment-page.component';
-import { RegisterPageComponent } from './pages/register-page/register-page.component';
-import { LoginPageComponent } from './pages/login-page/login-page.component';
-import { BakeryComponent } from './shared/Components/bakery/bakery.component';
-import { HairComponent } from './shared/Components/hair/hair.component';
-import { FurnituresComponent } from './shared/homes/furnitures/furnitures.component';
-import { SweetsComponent } from './shared/local-Market/sweets/sweets.component';
-import { BoutiqueComponent } from './shared/Components/boutique/boutique.component';
-import { CosmeticComponent } from './shared/Components/cosmetic/cosmetic.component';
-import { RealEstatesComponent } from './shared/homes/real-estates/real-estates.component';
 import { AuthGuard } from './auth/guards/auth.guard';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { AddressComponent } from './components/address/address.component';
@@ -46,14 +27,78 @@ import { BlogDetailsComponent } from './Blog/blog-details/blog-details.component
 import { CreateBlogComponent } from './Blog/create-blog/create-blog.component';
 import { EditBlogComponent } from './Blog/edit-blog/edit-blog.component';
 import { BlogComponent } from './Blog/blog/blog.component';
-import { AlcoholsComponent } from './shared/Components/alcohols/alcohols.component';
-import { MapComponent } from './components/partials/map/map.component';
+import { StoreComponent } from './components/store/store.component';
+import { StoreItemComponent } from './components/store-item/store-item.component';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { DeliverComponent } from './components/deliver/deliver.component';
+import { PartnerComponent } from './components/partner/partner.component';
+import { DFaqComponent } from './components/d-faq/d-faq.component';
+import { FaqItemComponent } from './help/faq-item/faq-item.component';
+import { TestimonyComponent } from './components/testimony/testimony.component';
+import { SubscriptionComponent } from './components/subscription/subscription.component';
+import { SellComponent } from './Sub/sell/sell.component';
+import { GrowComponent } from './Sub/grow/grow.component';
+import { ManageComponent } from './Sub/manage/manage.component';
+import { BlogHeaderComponent } from './Blog/blog-header/blog-header.component';
+import { TabComponent } from './Blog/tab/tab.component';
+import { SwiperComponent } from './Blog/swiper/swiper.component';
+import { FillFormComponent } from './shared/courier/fill-form/fill-form.component';
+import { TrackingComponent } from './shared/courier/tracking/tracking.component';
+import { PartnerDocumentsComponent } from './help/partner-documents/partner-documents.component';
+import { ImageCarouselComponent } from './components/image-carousel/image-carousel.component';
+import { AuthComponent } from './components/auth/auth.component';
+import { GoogleComponent } from './pages/google/google.component';
+import { PaymentsComponent } from './components/payments/payments.component';
+import { BtnOrdersComponent } from './Manger/btn-orders/btn-orders.component';
+import { DashboardComponent } from './Manger/dashboard/dashboard.component';
+import { OrdersComponent } from './Manger/orders/orders.component';
+import { LandingComponent } from './Manger/landing/landing.component';
+import { FiltersComponent } from './Manger/filters/filters.component';
+import { HerosComponent } from './Manger/hero/heros.component';
+import { SearchsComponent } from './Manger/searchs/searchs.component';
+import { NotificationsComponent } from './Manger/Shared/notifications/notifications.component';
+import { ViewBtnComponent } from './Manger/Shared/view-btn/view-btn.component';
+import { BillingsComponent } from './Manger/Shared/billings/billings.component';
+import { BtnProcessComponent } from './Manger/Shared/btn-process/btn-process.component';
+import { DriverComponent } from './Manger/Shared/driver/driver.component';
+import { OrderDetailsComponent } from './Manger/Shared/order-details/order-details.component';
+import { FilterDriverComponent } from './Delivery/Drivers/filter-driver/filter-driver.component';
+import { HeaderDriverComponent } from './Delivery/Drivers/header-driver/header-driver.component';
+import { HeroDriverComponent } from './Delivery/Drivers/hero-driver/hero-driver.component';
+import { MoneyComponent } from './Delivery/Drivers/money/money.component';
+import { NavigationComponent } from './Delivery/Drivers/navigation/navigation.component';
+import { PageLandingComponent } from './Delivery/Drivers/page-landing/page-landing.component';
+import { TrackingStatusComponent } from './Delivery/Drivers/tracking-status/tracking-status.component';
+import { WalletComponent } from './Delivery/Drivers/wallet/wallet.component';
+import { ProcessComponent } from './Delivery/Drivers/process/process.component';
+import { PopformComponent } from './components/popform/popform.component';
+import { ConfirmMessageComponent } from './Page/confirm-message/confirm-message.component';
+import { ConfirmBtnComponent } from './Page/confirm-btn/confirm-btn.component';
+import { FeedbackComponent } from './Page/feedback/feedback.component';
+import { RecipientComponent } from './Page/recipient/recipient.component';
+import { GiftsComponent } from './Page/gifts/gifts.component';
+import { StoreItemPageComponent } from './Stores/store-item-page/store-item-page.component';
+import { CheckoutComponent } from './Stores/checkout/checkout.component';
+import { CartsPageComponent } from './Stores/carts-page/carts-page.component';
+import { FoodsComponent } from './shared/Components/foods/foods.component';
+import { RestaurantFoodItemComponent } from './shared/Components/restaurant-food-item/restaurant-food-item.component';
+import { RestaurantServingFoodComponent } from './shared/Components/restaurant-serving-food/restaurant-serving-food.component';
+import { ResturantManagementComponent } from './Manger/resturant-management/resturant-management.component';
+import { AdminComponent } from './Admin/admin/admin.component';
+import { LoginComponent } from './auth/login/login.component';
+import { UnauthorizedComponent } from './auth/unauthorized/unauthorized.component';
+import { RoleGuard } from './auth/role.guard';
+import { RegisterComponent } from './auth/register/register.component';
+import { CategoryListComponent } from './Admin/category-list/category-list.component';
+import { CategoryFormComponent } from './Admin/category-form/category-form.component';
+
 
 
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
-  {path:'home',component:HomeComponent},
+  {path:'home',component:HomeComponent,canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'customer' }},
+   {path:'auth',component:AuthComponent},
   {path:'contact',component:ContactComponent},
   {path:'navbar',component:NavbarComponent},
   {path:'footer',component:FooterComponent},
@@ -65,9 +110,9 @@ const routes: Routes = [
   {path:'categories',component:CategoriesComponent},
   {path:'header',component:HeaderComponent},
   {path:'bus',component:BusComponent},
-  {path:'grocery',component:GroceryComponent},
-  {path:'pharmacy',component:PharmacyComponent},
   {path:'faq',component:FaqComponent},
+  {path:'store',component:StoreComponent},
+  {path:'store-item',component:StoreItemComponent},
   {path:'privacy-policy',component:PrivacyPolicyComponent},
   {path:'about-us',component:AboutUsComponent},
   {path:'about-us-content',component:AboutUsContentComponent},
@@ -76,34 +121,80 @@ const routes: Routes = [
   {path:'hero-courier',component:HeroCourierComponent},
   {path:'service-section',component:ServiceSectionComponent},
   {path:'form',component:FormComponent},
-  {path:'search/:searchTerm', component:ResturantsComponent},
-  {path:'tag/:tag', component:ResturantsComponent},
-  {path:'cart-page',component:CartPageComponent},
-  {path:'not-found',component:NotFoundComponent},
-  {path:'lists/id',component:FoodPageComponent},
-  {path:'resturants',component:ResturantsComponent},
-  {path:'local-market',component:LocalMarketComponent},
-  {path:'food/:id', component:FoodPageComponent},
-  {path:'cart-page', component: CartPageComponent},
-  {path:'login', component: LoginPageComponent},
-  {path:'register', component: RegisterPageComponent},
-  {path:'bakery',component:BakeryComponent},
-  {path:'hair',component:HairComponent},
-  {path:'furniture',component:FurnituresComponent},
-  {path:'real-estates',component:RealEstatesComponent},
-  {path:'sweet',component:SweetsComponent},
-  {path:'boutique',component:BoutiqueComponent},
-  {path:'cosmetic',component:CosmeticComponent},
   {path:'landing-page',component:LandingPageComponent},
   {path:'address',component:AddressComponent},
   {path:'blog-details', component:BlogDetailsComponent},
   {path:'create-blog',component:CreateBlogComponent},
   {path:'edit-blog',component:EditBlogComponent},
-  {path:'alcohol',component:AlcoholsComponent},
-  {path:'checkout', component: CheckoutPageComponent, canActivate:[AuthGuard]},
-  {path:'payment', component: PaymentPageComponent, canActivate:[AuthGuard]},
-  {path:'track/:orderId', component: OrderTrackPageComponent, canActivate:[AuthGuard]},
-  {path:'map',component:MapComponent}
+  {path:'google',component:GoogleComponent},
+  {path:'registration',component:RegistrationComponent},
+  {path:'deliver',component:DeliverComponent},
+  {path:'partner',component:PartnerComponent},
+  {path:'d-faq',component:DFaqComponent},
+  {path:'faq-item',component:FaqItemComponent},
+  {path:'testimony',component:TestimonyComponent},
+  {path:'subscription',component:SubscriptionComponent},
+  {path:'sell',component:SellComponent},
+  {path:'grow',component:GrowComponent},
+  {path:'manage',component:ManageComponent},
+  { path: '', redirectTo: '/sell', pathMatch: 'full' },
+  {path:'blog-header',component:BlogHeaderComponent},
+  {path:'tab',component:TabComponent},
+  {path:'swiper',component:SwiperComponent},
+  {path:'fill-form',component:FillFormComponent},
+  {path:'tracking',component:TrackingComponent},
+  {path:'partner-documents',component:PartnerDocumentsComponent},
+  {path:'image-carousel',component:ImageCarouselComponent},
+  {path:'payments',component:PaymentsComponent},
+  {path:'btn-orders',component:BtnOrdersComponent},
+  {path:'dashboard',component:DashboardComponent},
+  {path:'filters',component:FiltersComponent},
+  {path:'heros',component:HerosComponent},
+  {path:'landing',component:LandingComponent},
+  {path:'orders',component:OrdersComponent},
+  {path:'searchs',component:SearchsComponent},
+  {path:'notifications',component:NotificationsComponent},
+  {path:'view-btn',component:ViewBtnComponent},
+  {path:'billings',component:BillingsComponent},
+  {path:'btn-process',component:BtnProcessComponent},
+  {path:'driver',component:DriverComponent},
+  {path:'order-details',component:OrderDetailsComponent},
+  {path:'filter-driver',component:FilterDriverComponent},
+  {path:'header-driver',component:HeaderDriverComponent},
+  {path:'hero-driver',component:HeroDriverComponent,  canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'driver' }},
+  {path:'money',component:MoneyComponent},
+  {path:'navigation',component:NavigationComponent},
+  {path:'page-landing',component:PageLandingComponent},
+  {path:'tracking-status',component:TrackingStatusComponent},
+  {path:'wallet',component:WalletComponent},
+  {path:'process',component:ProcessComponent},
+  {path:'popform',component:PopformComponent},
+  {path:'confirm-message',component:ConfirmMessageComponent},
+  {path:'confirm-btn',component:ConfirmBtnComponent},
+  {path:'feedback',component:FeedbackComponent},
+  {path:'recipient',component:RecipientComponent},
+  {path:'gifts',component:GiftsComponent},
+  {path:'store-item-page',component:StoreItemPageComponent},
+  {path:'checkout',component:CheckoutComponent},
+  {path:'carts-page',component:CartsPageComponent},
+  {path:'foods',component:FoodsComponent},
+  {path:'resturant-food-item',component:RestaurantFoodItemComponent},
+  {path:'resturant-management',component:ResturantManagementComponent},
+  {path:'resturant-serving-food',component:RestaurantServingFoodComponent},
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  // { path: 'admin', component: AdminComponent, canActivate: [AuthGuard, RoleGuard], data: { expectedRole: 'admin' } },
+  {path:'admin',component:AdminComponent},
+  { path: 'unauthorized', component: UnauthorizedComponent },
+  { path: '**', redirectTo: '/login' },
+  {path:'category-list',component:CategoryListComponent},
+  {path:'category-form',component:CategoryFormComponent}
+
+
+  
+
+
+
 
   // { path: 'featured', loadChildren: () => import('./routes/featured/featured.module').then(m => m.FeaturedModule) }
 ];
@@ -113,3 +204,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+

@@ -1,0 +1,16 @@
+<!-- src/app/customer/category-list/category-list.component.html -->
+
+<div class="container">
+    <h1>Food Categories</h1>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let category of categories">
+        <div class="card mb-4">
+          <img class="card-img-top" [src]="category.photoUrl" alt="{{ category.categoryName }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ category.categoryName }}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

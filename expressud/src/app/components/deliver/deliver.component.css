@@ -1,0 +1,135 @@
+
+
+.vehicles {
+  display: flex;
+  height: 113px;
+  margin: 20px;
+}
+
+.vehicles button {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  margin-right: 2px;
+
+}
+
+.vehicles button img {
+  width: 50px; /* Adjust width as needed */
+  height: 50px; /* Adjust height as needed */
+}
+
+
+
+.container {
+  display: flex;
+}
+
+.content-left {
+  flex: 1;
+  padding: 20px;
+}
+
+.content-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.account{
+  margin-top: 30%;
+}
+.welcom {
+  width: 50%;
+  min-height: 10%;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  margin-top: 20%;
+  border-radius: 15px;
+  margin-left: 60px;
+  margin-right: 40px;
+}
+
+.welcom h1 {
+  font-size: 34px;
+  color: #333;
+}
+
+.welcom p {
+  font-size: 26px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.welcom h3 {
+  font-size: 20px;
+  color: #333;
+  margin-top: 20px;
+}
+
+
+
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .form-header{
+    font-size: 1.5rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 500;
+    
+  }
+  .header {
+    
+    padding: 20px; /* Padding around the header */
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.9rem; /* Font size */
+    color: #333; /* Text color */
+    line-height: 1.5; /* Line height */
+    text-align: center; /* Center align text */
+    
+  }
+  
+
+  
+  /* Style the form elements */
+  form {
+    width: 90vh; /* Adjust width as needed */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin-bottom: 50px;
+    border-radius: 15px;
+    margin-left: 40px;
+  }
+  
+  div {
+    margin-bottom: 10px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 20px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  select {
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+  }
+  
+ 

@@ -1,0 +1,15 @@
+import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+
+@Component({
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrl: './dashboard.component.css'
+})
+export class DashboardComponent {
+ 
+  constructor(private toastr: ToastrService) {} 
+  
+
+      
+ }

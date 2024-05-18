@@ -1,0 +1,49 @@
+/* Responsive form */
+form {
+    max-width: 600px; /* Set maximum width for better readability on larger screens */
+    margin: 0 auto; /* Center the form horizontally */
+    margin-bottom: 40px;
+  }
+  label{
+    font-size: 1.6rem;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  h1{
+    font-size: 2.1rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+  }
+  /* Textarea styles */
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px; /* Add spacing between textarea and other elements */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease; /* Add transition effect for better user experience */
+    font-size: 16px; /* Set font size */
+    font-family: Arial, sans-serif; /* Set font family */
+  }
+  
+  /* Input styles */
+  input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px; /* Add spacing between input and other elements */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease; /* Add transition effect for better user experience */
+    font-size: 16px; /* Set font size */
+    font-family: Arial, sans-serif; /* Set font family */
+  }
+  
+  /* Error message styles */
+  div.error-message {
+    color: red;
+    font-size: 0.8rem;
+    margin-bottom: 10px; /* Add spacing below error message */
+  }
+  
+
+  

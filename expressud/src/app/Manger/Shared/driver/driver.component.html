@@ -1,0 +1,6 @@
+<!-- assign-driver.component.html -->
+<div *ngFor="let driver of drivers">
+    <p>{{ driver.name }}</p>
+    <button (click)="assignDriver(deliveryId, driver.id)">Assign Driver</button>
+  </div>
+  

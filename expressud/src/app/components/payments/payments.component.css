@@ -1,0 +1,24 @@
+.input-button__body{
+  
+    padding: 40px;
+  
+}
+h1{
+    font-size: 2.3rem;
+    padding: 10px;
+    font-weight: 400;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.input-button__select{
+    width: 100%; /* Adjust width as needed */
+    height: 40px; /* Adjust height as needed */
+    padding: 5px; /* Add padding for better appearance */
+    border: 1px solid #ccc; /* Add border for better visibility */
+    border-radius: 5px; /* Add border-radius for rounded corners */
+    box-sizing: border-box; 
+   
+}
+option{
+    font-size: 1.1rem;
+}

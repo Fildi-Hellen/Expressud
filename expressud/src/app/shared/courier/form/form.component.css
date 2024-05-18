@@ -2,8 +2,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 60px;
 }
-
+img{
+    width: 100px;
+}
+h3{
+    padding: 10px;
+}
 
 .about-banner {
     flex: 0 0 50%; 

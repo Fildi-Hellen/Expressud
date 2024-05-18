@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
+import { IonicModule } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import  {HomeComponent} from './components/home/home.component';
 import { InstagramComponent } from './components/instagram/instagram.component';
@@ -13,8 +14,6 @@ import { HeroComponent } from './components/hero/hero.component';
 import { ProductComponent } from './components/product/product.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BusComponent } from './shared/courier/bus/bus.component';
-import { PharmacyComponent } from './shared/Components/pharmacy/pharmacy.component';
-import { GroceryComponent } from './shared/local-Market/grocery/grocery.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
@@ -39,46 +38,83 @@ import { AboutUsTitleComponent } from './about/about-us-title/about-us-title.com
 import { FormComponent } from './shared/courier/form/form.component';
 import { ServiceSectionComponent } from './shared/courier/service-section/service-section.component';
 import { HeroCourierComponent } from './shared/courier/hero-courier/hero-courier.component';
-import { FoodPageComponent } from './pages/food-page/food-page.component';
-import { ResturantsComponent } from './components/partials/resturants/resturants.component';
-import { LocalMarketComponent } from './shared/local-Market/local-market/local-market.component';
 import { ToastrModule } from 'ngx-toastr';
-import { InputContainerComponent } from './components/partials/input-container/input-container.component';
-import { InputValidationComponent } from './components/partials/input-validation/input-validation.component';
-import { TextInputComponent } from './components/partials/text-input/text-input.component';
-import { DefaultButtonComponent } from './components/partials/default-button/default-button.component';
-import { RegisterPageComponent } from './pages/register-page/register-page.component';
-import { LoadingComponent } from './components/partials/loading/loading.component';
-import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.component';
-import { OrderItemsListComponent } from './components/partials/order-items-list/order-items-list.component';
-import { MapComponent } from './components/partials/map/map.component';
-import { PaymentPageComponent } from './pages/payment-page/payment-page.component';
-import { PaypalButtonComponent } from './components/partials/paypal-button/paypal-button.component';
-import { StarRatingComponent } from './components/partials/star-rating/star-rating.component';
-import { OrderTrackPageComponent } from './pages/order-track-page/order-track-page.component';
-import { CartPageComponent } from './pages/cart-page/cart-page.component';
-import { NotFoundComponent } from './components/partials/not-found/not-found.component';
-import { SearchComponent } from './components/partials/search/search.component';
-import { LoginPageComponent } from './pages/login-page/login-page.component';
-import { TagsComponent } from './components/partials/tags/tags.component';
-import { RealEstatesComponent } from './shared/homes/real-estates/real-estates.component';
-import { SweetsComponent } from './shared/local-Market/sweets/sweets.component';
-import { HairComponent } from './shared/Components/hair/hair.component';
-import { FurnituresComponent } from './shared/homes/furnitures/furnitures.component';
-import { CosmeticComponent } from './shared/Components/cosmetic/cosmetic.component';
-import { BakeryComponent } from './shared/Components/bakery/bakery.component';
-import { BoutiqueComponent } from './shared/Components/boutique/boutique.component';
+
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { LoadingInterceptor } from './Shared1/interceptors/loading.interceptor';
-import { TitleComponent } from './components/partials/title/title.component';
+
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { AddressComponent } from './components/address/address.component';
 import { BlogComponent } from './Blog/blog/blog.component';
 import { BlogDetailsComponent } from './Blog/blog-details/blog-details.component';
 import { CreateBlogComponent } from './Blog/create-blog/create-blog.component';
 import { EditBlogComponent } from './Blog/edit-blog/edit-blog.component';
-import { AlcoholsComponent } from './shared/Components/alcohols/alcohols.component';
-;
+
+import { StoreComponent } from './components/store/store.component';
+import { StoreItemComponent } from './components/store-item/store-item.component';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { PartnerComponent } from './components/partner/partner.component';
+import { DeliverComponent } from './components/deliver/deliver.component';
+import { DFaqComponent } from './components/d-faq/d-faq.component';
+import { FaqItemComponent } from './help/faq-item/faq-item.component';
+import { TestimonyComponent } from './components/testimony/testimony.component';
+import { SubscriptionComponent } from './components/subscription/subscription.component';
+import { SellComponent } from './Sub/sell/sell.component';
+import { ManageComponent } from './Sub/manage/manage.component';
+import { GrowComponent } from './Sub/grow/grow.component';
+import { BlogHeaderComponent } from './Blog/blog-header/blog-header.component';
+import { TabComponent } from './Blog/tab/tab.component';
+import { SwiperComponent } from './Blog/swiper/swiper.component';
+import { FillFormComponent } from './shared/courier/fill-form/fill-form.component';
+import { TrackingComponent } from './shared/courier/tracking/tracking.component';
+import { PartnerDocumentsComponent } from './help/partner-documents/partner-documents.component';
+import { ImageCarouselComponent } from './components/image-carousel/image-carousel.component';
+import { AuthComponent } from './components/auth/auth.component';
+import { GoogleComponent } from './pages/google/google.component';
+import { PaymentsComponent } from './components/payments/payments.component';
+import { HerosComponent } from './Manger/hero/heros.component';
+import { FiltersComponent } from './Manger/filters/filters.component';
+import { BtnOrdersComponent } from './Manger/btn-orders/btn-orders.component';
+import { OrdersComponent } from './Manger/orders/orders.component';
+import { LandingComponent } from './Manger/landing/landing.component';
+import { DashboardComponent } from './Manger/dashboard/dashboard.component';
+import { SearchsComponent } from './Manger/searchs/searchs.component';
+import { NotificationsComponent } from './Manger/Shared/notifications/notifications.component';
+import { ViewBtnComponent } from './Manger/Shared/view-btn/view-btn.component';
+import { OrderDetailsComponent } from './Manger/Shared/order-details/order-details.component';
+import { BtnProcessComponent } from './Manger/Shared/btn-process/btn-process.component';
+import { BillingsComponent } from './Manger/Shared/billings/billings.component';
+import { DriverComponent } from './Manger/Shared/driver/driver.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MoneyComponent } from './Delivery/Drivers/money/money.component';
+import { PageLandingComponent } from './Delivery/Drivers/page-landing/page-landing.component';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { WalletComponent } from './Delivery/Drivers/wallet/wallet.component';
+import { NavigationComponent } from './Delivery/Drivers/navigation/navigation.component';
+import { FilterDriverComponent } from './Delivery/Drivers/filter-driver/filter-driver.component';
+import { HeroDriverComponent } from './Delivery/Drivers/hero-driver/hero-driver.component';
+import { HeaderDriverComponent } from './Delivery/Drivers/header-driver/header-driver.component';
+import { TrackingStatusComponent } from './Delivery/Drivers/tracking-status/tracking-status.component';
+import { ProcessComponent } from './Delivery/Drivers/process/process.component';
+import { PopformComponent } from './components/popform/popform.component';
+import { ConfirmBtnComponent } from './Page/confirm-btn/confirm-btn.component';
+import { ConfirmMessageComponent } from './Page/confirm-message/confirm-message.component';
+import { FeedbackComponent } from './Page/feedback/feedback.component';
+import { RecipientComponent } from './Page/recipient/recipient.component';
+import { GiftsComponent } from './Page/gifts/gifts.component';
+import { StoreItemPageComponent } from './Stores/store-item-page/store-item-page.component';
+import { CartsPageComponent } from './Stores/carts-page/carts-page.component';
+import { CheckoutComponent } from './Stores/checkout/checkout.component';
+import { FoodsComponent } from './shared/Components/foods/foods.component';
+import { RestaurantFoodItemComponent } from './shared/Components/restaurant-food-item/restaurant-food-item.component';
+import { RestaurantServingFoodComponent } from './shared/Components/restaurant-serving-food/restaurant-serving-food.component';
+import { ResturantManagementComponent } from './Manger/resturant-management/resturant-management.component';
+import { LoginComponent } from './auth/login/login.component';
+import { UnauthorizedComponent } from './auth/unauthorized/unauthorized.component';
+import { AdminComponent } from './Admin/admin/admin.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { CategoryFormComponent } from './Admin/category-form/category-form.component';
+import { CategoryListComponent } from './Admin/category-list/category-list.component';
 
 
 
@@ -87,17 +123,53 @@ import { AlcoholsComponent } from './shared/Components/alcohols/alcohols.compone
   declarations: [
     AppComponent,
     HomeComponent,
+    StoreComponent,
+    GoogleComponent,
+    PopformComponent,
+    HerosComponent,
+    GiftsComponent,
+    StoreItemPageComponent,
+    RecipientComponent,
+    FeedbackComponent,
+    ConfirmBtnComponent,
+    LoginComponent,
+    UnauthorizedComponent,
+    AdminComponent,
+    ConfirmMessageComponent,
+    ResturantManagementComponent,
+    FiltersComponent,
+    ProcessComponent,
+    BtnOrdersComponent,
+    OrdersComponent,
+    LandingComponent,
+    DashboardComponent,
+    SearchsComponent,
+    NotificationsComponent,
+    OrderDetailsComponent,
+    BtnProcessComponent,
+    BillingsComponent,
+    DriverComponent,
+    ViewBtnComponent,
+    PaymentsComponent,
+    StoreItemComponent,
     HeaderComponent,
     HeroComponent,
+    ImageCarouselComponent,
+    PartnerDocumentsComponent,
     BannerComponent,
+    FillFormComponent,
+    TrackingComponent,
     CategoriesComponent,
     InstagramComponent,
     ProductComponent,
     NavbarComponent,
     FooterComponent,
     BusComponent,
-    PharmacyComponent,
-    GroceryComponent,
+    CategoryFormComponent,
+    CategoryListComponent,
+    RegisterComponent,
+    FaqItemComponent,
+    TestimonyComponent,
     FaqComponent,
     PrivacyPolicyComponent,
    ContactComponent,
@@ -108,43 +180,39 @@ import { AlcoholsComponent } from './shared/Components/alcohols/alcohols.compone
    FormComponent,
    ServiceSectionComponent,
   HeroCourierComponent,
-  NotFoundComponent,
-  SearchComponent,
-  TagsComponent,
-  FoodPageComponent,
-  CartPageComponent,
- ResturantsComponent,
-  LocalMarketComponent,
-  LoginPageComponent,
-    InputContainerComponent,
-    InputValidationComponent,
-    TextInputComponent,
-    DefaultButtonComponent,
-    RegisterPageComponent,
-    LoadingComponent,
-    CheckoutPageComponent,
-    OrderItemsListComponent,
-    MapComponent,
-    PaymentPageComponent,
-    PaypalButtonComponent,
-    OrderTrackPageComponent,
-    StarRatingComponent,
-    SweetsComponent,
-    HairComponent,
-    FurnituresComponent,
-    CosmeticComponent,
-    BakeryComponent,
-    RealEstatesComponent,
-    BoutiqueComponent,
-    TitleComponent,
+  DFaqComponent,
+  FoodsComponent,
+  RestaurantFoodItemComponent,
+RestaurantServingFoodComponent,
+  RegistrationComponent,
+ PartnerComponent,
+ DeliverComponent,
     LandingPageComponent,
     AddressComponent,
     BlogComponent,
     BlogDetailsComponent,
     CreateBlogComponent,
     EditBlogComponent,
-    AlcoholsComponent,
-    MapComponent
+    SubscriptionComponent,
+    SellComponent,
+    ManageComponent,
+    GrowComponent,
+    BlogHeaderComponent,
+    TabComponent,
+    SwiperComponent,
+    AuthComponent,
+    MoneyComponent,
+    PageLandingComponent,
+    WalletComponent,
+    NavigationComponent,
+    FilterDriverComponent,
+    HeroDriverComponent,
+    HeaderDriverComponent,
+    TrackingStatusComponent,
+    CartsPageComponent,
+    CheckoutComponent
+  
+
 
   ],
 
@@ -161,25 +229,31 @@ import { AlcoholsComponent } from './shared/Components/alcohols/alcohols.compone
      SlickCarouselModule,
      HttpClientModule,
      BrowserAnimationsModule,
+     CommonModule,
      MatExpansionModule,
      FontAwesomeModule,
      ReactiveFormsModule,
+     GoogleMapsModule,
+     MatDialogModule,
      FormsModule,
+     IonicModule.forRoot(),
      ToastrModule.forRoot({
       timeOut:3000,
       positionClass:'toast-bottom-right',
+      preventDuplicates: true,
       newestOnTop:false
     })
-  
+
      
     
   ],
   providers: [
     provideAnimationsAsync(),
+    DatePipe,
     ContactService,
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi: true },
-    {provide:HTTP_INTERCEPTORS, useClass:LoadingInterceptor, multi: true }
+    {provide:HTTP_INTERCEPTORS, useClass:LoadingInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

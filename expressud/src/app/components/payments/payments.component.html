@@ -1,0 +1,11 @@
+<div class="input-button__body">
+    <h1>Payment Method</h1>
+    <div class="input-button__text-box">
+      <select [(ngModel)]="selectedPaymentMethod" class="input-button__select" data-test-id="payment-method-dropdown">
+        <option *ngFor="let method of paymentMethods" [value]="method">{{ method }}</option>
+      </select>
+    </div>
+ 
+  </div>
+  
+  

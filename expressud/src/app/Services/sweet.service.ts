@@ -9,28 +9,29 @@ import { Sweet } from '../Shared1/models/sweet';
   providedIn: 'root'
 })
 export class SweetService {
+  private baseUrl = 'http://127.0.0.1:8000/api';
 
   constructor(private http:HttpClient) { }
 
   getAll(): Observable<Sweet[]> {
-    return this.http.get<Sweet[]>(SWEETS_URL);
+    return this.http.get<Sweet[]>(`${this.baseUrl}/sweets`);
   }
 
   getAllSweetsBySearchTerm(searchTerm: string) {
-    return this.http.get<Sweet[]>(SWEETS_BY_SEARCH_URL + searchTerm);
+    return this.http.get<Sweet[]>(`${this.baseUrl}/sweets/search/${searchTerm}`);
   }
 
   getAllTags(): Observable<Tag[]> {
-    return this.http.get<Tag[]>(SWEETS_TAGS_URL);
+    return this.http.get<Tag[]>(`${this.baseUrl}/sweets/tags`);
   }
 
   getAllSweetsByTag(tag: string): Observable<Sweet[]> {
     return tag === "All" ?
       this.getAll() :
-      this.http.get<Sweet[]>(SWEETS_BY_TAG_URL + tag);
+      this.http.get<Sweet[]>(`${this.baseUrl}/sweets/tag/${tag}`);
   }
 
   getSweetById(sweetId:string):Observable<Sweet>{
-    return this.http.get<Sweet>(SWEET_BY_ID_URL + sweetId);
+    return this.http.get<Sweet>(`${this.baseUrl}/sweets/${sweetId}`);
   }
 }
