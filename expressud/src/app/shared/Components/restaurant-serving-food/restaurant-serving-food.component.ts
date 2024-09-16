@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FoodService } from 'src/app/Services/food.service';
+
 
 
 @Component({
@@ -8,25 +9,37 @@ import { FoodService } from 'src/app/Services/food.service';
   templateUrl: './restaurant-serving-food.component.html',
   styleUrls: ['./restaurant-serving-food.component.css']
 })
-export class RestaurantServingFoodComponent {
+export class RestaurantServingFoodComponent implements OnInit {
+ CategoryId: number = 0;
+  restaurantList: any[] = [];
 
-  currentCategoryId: number = 0;
-  restaurantList: any []= [];
-  constructor(private actiavtedRoute: ActivatedRoute,private router: Router, private foodService: FoodService) {
-    this.actiavtedRoute.params.subscribe((res:any) => {
-      debugger;
-      this.currentCategoryId = res.id;
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private foodService: FoodService
+  ) {}
+
+  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.CategoryId = +params['categoryId']; // Debug log
       this.GetRestaurantServingByCategoryId();
-    })
+    });
   }
 
-  GetRestaurantServingByCategoryId() {
-    this.foodService.GetRestaurantServingByCategoryId(this.currentCategoryId).subscribe((res:any)=>{
-      this.restaurantList =  res.data;
-    })
+  GetRestaurantServingByCategoryId(): void {
+    this.foodService.getRestaurantServingByCategoryId(this.CategoryId).subscribe(
+      data => {
+        this.restaurantList = data.data;
+      },
+      error => {
+        console.error('Error fetching restaurants', error);
+      }
+    );
   }
+  
 
-  navigate(restaurantID: number) {
-    this.router.navigate(['/restaurant-food-item',restaurantID,this.currentCategoryId])
+  navigate(restaurantId: number): void {
+    this.router.navigate(['/restaurant-food-item', restaurantId, this.CategoryId]);
   }
 }
+

@@ -18,7 +18,7 @@
           </div>
         </div>
         
-      
+
       <div class="box">
         <div class="icon"><i class="fa-solid fa-phone"></i></div>
         <div class="text">
@@ -39,37 +39,46 @@
   
 
     
-  <div class="contactform">
-    <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
-      <h2>Send Message</h2>
-      <div class="inputBox">
-        <input type="text" name="" formControlName="name">
-        <span for="name">Full Name</span>
-        <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
-          <p class="error-message">Name is required.</p>
-        </div>
+  <form [formGroup]="contactForm" (ngSubmit)="submitForm()" class="contactForm">
+    <h2>Send Your Message </h2>
+    <div>
+      <label for="name">Name</label>
+      <input id="name" formControlName="name">
+      <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched" class="error-message">
+        Name is required
       </div>
-      <div class="inputBox">
-        <input type="text" name="" formControlName="email">
-        <span>Email</span>
-        <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
-          <p class="error-message">Email is required.</p>
-        </div>
-      </div>
-      <div class="inputBox">
-       <textarea name=""  formControlName="message"></textarea>
-        <span>Type your Message..</span>
-        <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">
-          <p class="error-message">Message is required.</p>
-        </div>
-      </div>
-      <div class="inputBox">
-        <button type="submit" id="btn">Send</button>
-        <p *ngIf="messageReceived" class="info">Your message is received. Thank you!</p>
-      </div>
-    </form>
-  </div>
     </div>
   
+    <div>
+      <label for="email">Email</label>
+      <input id="email" formControlName="email">
+      <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" class="error-message">
+        A valid email is required
+      </div>
+    </div>
+  
+    <div>
+      <label for="subject">Subject</label>
+      <input id="subject" formControlName="subject">
+      <div *ngIf="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched" class="error-message">
+        Subject is required
+      </div>
+    </div>
+  
+    <div>
+      <label for="message">Message</label>
+      <textarea id="message" formControlName="message"></textarea>
+      <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched" class="error-message">
+        Message is required
+      </div>
+    </div>
+  
+    <button type="submit" id="btn">Send</button>
+  
+    <div *ngIf="messageReceived" class="error-message">
+      Your message has been sent successfully!
+    </div>
+  </form>  
+    </div>
 </section>
 

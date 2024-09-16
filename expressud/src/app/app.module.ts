@@ -19,10 +19,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'; 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {VgCoreModule} from '@videogular/ngx-videogular/core';
-import {VgControlsModule} from '@videogular/ngx-videogular/controls';
-import {VgOverlayPlayModule} from '@videogular/ngx-videogular/overlay-play';
-import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { FaqComponent } from './help/faq/faq.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -30,7 +26,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { PrivacyPolicyComponent } from './help/privacy-policy/privacy-policy.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-import { ContactService } from './contact.service';
+import { ContactService } from './Services/contact.service';
 import { AboutUsComponent } from './about/about-us/about-us.component';
 import { AboutUsContentComponent } from './about/about-us-content/about-us-content.component';
 import { AboutUsDescriptionComponent } from './about/about-us-description/about-us-description.component';
@@ -39,17 +35,14 @@ import { FormComponent } from './shared/courier/form/form.component';
 import { ServiceSectionComponent } from './shared/courier/service-section/service-section.component';
 import { HeroCourierComponent } from './shared/courier/hero-courier/hero-courier.component';
 import { ToastrModule } from 'ngx-toastr';
-
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { LoadingInterceptor } from './Shared1/interceptors/loading.interceptor';
-
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { AddressComponent } from './components/address/address.component';
 import { BlogComponent } from './Blog/blog/blog.component';
 import { BlogDetailsComponent } from './Blog/blog-details/blog-details.component';
 import { CreateBlogComponent } from './Blog/create-blog/create-blog.component';
 import { EditBlogComponent } from './Blog/edit-blog/edit-blog.component';
-
 import { StoreComponent } from './components/store/store.component';
 import { StoreItemComponent } from './components/store-item/store-item.component';
 import { RegistrationComponent } from './components/registration/registration.component';
@@ -72,19 +65,6 @@ import { ImageCarouselComponent } from './components/image-carousel/image-carous
 import { AuthComponent } from './components/auth/auth.component';
 import { GoogleComponent } from './pages/google/google.component';
 import { PaymentsComponent } from './components/payments/payments.component';
-import { HerosComponent } from './Manger/hero/heros.component';
-import { FiltersComponent } from './Manger/filters/filters.component';
-import { BtnOrdersComponent } from './Manger/btn-orders/btn-orders.component';
-import { OrdersComponent } from './Manger/orders/orders.component';
-import { LandingComponent } from './Manger/landing/landing.component';
-import { DashboardComponent } from './Manger/dashboard/dashboard.component';
-import { SearchsComponent } from './Manger/searchs/searchs.component';
-import { NotificationsComponent } from './Manger/Shared/notifications/notifications.component';
-import { ViewBtnComponent } from './Manger/Shared/view-btn/view-btn.component';
-import { OrderDetailsComponent } from './Manger/Shared/order-details/order-details.component';
-import { BtnProcessComponent } from './Manger/Shared/btn-process/btn-process.component';
-import { BillingsComponent } from './Manger/Shared/billings/billings.component';
-import { DriverComponent } from './Manger/Shared/driver/driver.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MoneyComponent } from './Delivery/Drivers/money/money.component';
 import { PageLandingComponent } from './Delivery/Drivers/page-landing/page-landing.component';
@@ -108,13 +88,29 @@ import { CheckoutComponent } from './Stores/checkout/checkout.component';
 import { FoodsComponent } from './shared/Components/foods/foods.component';
 import { RestaurantFoodItemComponent } from './shared/Components/restaurant-food-item/restaurant-food-item.component';
 import { RestaurantServingFoodComponent } from './shared/Components/restaurant-serving-food/restaurant-serving-food.component';
-import { ResturantManagementComponent } from './Manger/resturant-management/resturant-management.component';
 import { LoginComponent } from './auth/login/login.component';
 import { UnauthorizedComponent } from './auth/unauthorized/unauthorized.component';
 import { AdminComponent } from './Admin/admin/admin.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { CategoryFormComponent } from './Admin/category-form/category-form.component';
 import { CategoryListComponent } from './Admin/category-list/category-list.component';
+import { MenuComponent } from './shared/Components/menu/menu.component';
+import { MenuItemListComponent } from './Admin/menu-item-list/menu-item-list.component';
+import { VendorListComponent } from './Admin/vendor-list/vendor-list.component';
+import { LogoutComponent } from './auth/logout/logout.component';
+import { ProfileComponent } from './auth/profile/profile.component';
+import { AdminRegistrationComponent } from './Admin/admin-registration/admin-registration.component';
+import { OrderSummaryComponent } from './Stores/order-summary/order-summary.component';
+import { MatIconModule } from '@angular/material/icon';
+
+import { PharmacyComponent } from './shared/Pharm/pharmacy/pharmacy.component';
+import { PharmacyItemsComponent } from './shared/Pharm/pharmacy-items/pharmacy-items.component';
+import { PharmacyServingComponent } from './shared/Pharm/pharmacy-serving/pharmacy-serving.component';
+import { SearchComponent } from './shared/search/search.component';
+import { VLoginComponent } from './auth/v-login/v-login.component';
+
+
+
 
 
 
@@ -126,7 +122,6 @@ import { CategoryListComponent } from './Admin/category-list/category-list.compo
     StoreComponent,
     GoogleComponent,
     PopformComponent,
-    HerosComponent,
     GiftsComponent,
     StoreItemPageComponent,
     RecipientComponent,
@@ -136,20 +131,7 @@ import { CategoryListComponent } from './Admin/category-list/category-list.compo
     UnauthorizedComponent,
     AdminComponent,
     ConfirmMessageComponent,
-    ResturantManagementComponent,
-    FiltersComponent,
     ProcessComponent,
-    BtnOrdersComponent,
-    OrdersComponent,
-    LandingComponent,
-    DashboardComponent,
-    SearchsComponent,
-    NotificationsComponent,
-    OrderDetailsComponent,
-    BtnProcessComponent,
-    BillingsComponent,
-    DriverComponent,
-    ViewBtnComponent,
     PaymentsComponent,
     StoreItemComponent,
     HeaderComponent,
@@ -163,6 +145,9 @@ import { CategoryListComponent } from './Admin/category-list/category-list.compo
     InstagramComponent,
     ProductComponent,
     NavbarComponent,
+    VendorListComponent,
+    MenuComponent,
+    MenuItemListComponent,
     FooterComponent,
     BusComponent,
     CategoryFormComponent,
@@ -183,10 +168,10 @@ import { CategoryListComponent } from './Admin/category-list/category-list.compo
   DFaqComponent,
   FoodsComponent,
   RestaurantFoodItemComponent,
-RestaurantServingFoodComponent,
-  RegistrationComponent,
- PartnerComponent,
- DeliverComponent,
+    RestaurantServingFoodComponent,
+      RegistrationComponent,
+    PartnerComponent,
+    DeliverComponent,
     LandingPageComponent,
     AddressComponent,
     BlogComponent,
@@ -210,22 +195,25 @@ RestaurantServingFoodComponent,
     HeaderDriverComponent,
     TrackingStatusComponent,
     CartsPageComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    LogoutComponent,
+    ProfileComponent,
+    AdminRegistrationComponent,
+    OrderSummaryComponent,
+    PharmacyItemsComponent,
+    PharmacyServingComponent,
+    PharmacyComponent,
+    SearchComponent,
+    VLoginComponent
   
 
-
+    
   ],
 
   imports: [
-     BrowserModule,
-     BrowserAnimationsModule,
      NgbModule,
      BrowserModule,
      AppRoutingModule,
-    VgCoreModule,
-    VgControlsModule,
-    VgOverlayPlayModule,
-     VgBufferingModule,
      SlickCarouselModule,
      HttpClientModule,
      BrowserAnimationsModule,
@@ -236,6 +224,8 @@ RestaurantServingFoodComponent,
      GoogleMapsModule,
      MatDialogModule,
      FormsModule,
+     MatIconModule,
+    MatIconModule,
      IonicModule.forRoot(),
      ToastrModule.forRoot({
       timeOut:3000,
@@ -245,6 +235,7 @@ RestaurantServingFoodComponent,
     })
 
      
+
     
   ],
   providers: [

@@ -1,16 +1,13 @@
 <div class="container text-center">
-    <div class="row">
-      <div class="col-md-6">
-       <h1>
-        Build your business online with Expressud
-       </h1>
-       <form [formGroup]="form" (ngSubmit)="submitForm()">
+  <div class="row">
+    <div class="col-md-6">
+      <input type="hidden" formControlName="role" value="vendor">
+      <h1>Build your business online with Expressud</h1>
+      <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <div *ngIf="message" class="message">{{ message }}</div>
         <div>
-            <h2>
-                Start selling with Expressud
-            </h2>
-            
-           <h3>Register to become a partner. Sell more, increase your earnings and manage your online business with us.</h3>
+          <h2>Start selling with Expressud</h2>
+          <h3>Register to become a partner. Sell more, increase your earnings and manage your online business with us.</h3>
         </div>
         <div>
           <label for="establishmentName">Establishment Name:</label>
@@ -21,10 +18,10 @@
           <select id="establishmentType" formControlName="establishmentType">
             <option value="restaurant">Restaurant(Food,ice cream,smoothies and juice)</option>
             <option value="retail">Retail Store(Bakery and Pasteries,Beauty,Gifts,Alcohol,Boutiques and Hair,Furniture)</option>
-            <option value="cafe">Pharmacy</option>
-            <option value="cafe">Florist</option>
-            <option value="cafe">Grocery(Supermarket,Local Market)</option>
-            <option value="cafe">Real Estate</option>
+            <option value="pharmacy">Pharmacy</option>
+            <option value="florist">Florist</option>
+            <option value="grocery">Grocery(Supermarket,Local Market)</option>
+            <option value="realEstate">Real Estate</option>
             <!-- Add more options as needed -->
           </select>
         </div>
@@ -43,6 +40,14 @@
         <div>
           <label for="email">Email:</label>
           <input type="email" id="email" formControlName="email">
+        </div>
+        <div>
+          <label for="password">Password:</label>
+          <input type="password" id="password" formControlName="password">
+        </div>
+        <div>
+          <label for="password_confirmation">Confirm Password:</label>
+          <input type="password" id="password_confirmation" formControlName="password_confirmation">
         </div>
         <div>
           <label for="numberOfStores">Number of Stores:</label>
@@ -64,25 +69,20 @@
           <input type="checkbox" id="acceptPrivacyPolicy" formControlName="acceptPrivacyPolicy">
           <label for="acceptPrivacyPolicy">I accept the privacy policy</label>
         </div>
+        
         <div>
-          <button type="submit" [disabled]="form.invalid" id="btn">Get Started</button>
+          <button type="submit" [disabled]="registerForm.invalid" id="btn">Submit</button>
         </div>
-        <p>Already have an account? <a routerLink="/login"></a>Login</p>
-        <p>Want to be a courier? <a routerLink="/deliver"></a>Register here</p>
+        <p>Already registered? <a routerLink="/v-login">Login</a></p>
+        <p>Want to be a courier? <a routerLink="/deliver">Register here</a></p>
       </form>
-      
-      </div>
-      <div class="col-md-6 img">
-       <img src="assets/img/blog/black.avif" alt="">
-
-       <div>
-        <p>
-            “Expressud has grown our delivery order volumes by providing safe, fast and affordable delivery experience to new and existing customers.”
-        </p>
-        <p>
-         Deng Malik
-        </p>
-      </div>
-      </div>
-      
     </div>
+    <div class="col-md-6 img">
+      <img src="assets/img/blog/black.avif" alt="">
+      <div>
+        <p>“Expressud has grown our delivery order volumes by providing safe, fast and affordable delivery experience to new and existing customers.”</p>
+        <p>Deng Malik</p>
+      </div>
+    </div>
+  </div>
+</div>

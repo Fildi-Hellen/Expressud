@@ -1,70 +1,58 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { Cart } from '../Shared1/models/Cart';
-import { CartItem } from '../Shared1/models/CartItem';
-import { Food } from '../Shared1/models/Food';
+import { BehaviorSubject } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  private cart: Cart = this.getCartFromLocalStorage();
-  private cartSubject: BehaviorSubject<Cart> = new BehaviorSubject(this.cart);
-  constructor() { }
 
-  addToCart(food: Food): void {
-    let cartItem = this.cart.items
-      .find(item => item.food.id === food.id);
-    if (cartItem)
-      return;
+   private cartItemsSubject = new BehaviorSubject<any[]>([]);
+  cartItems$ = this.cartItemsSubject.asObservable();
 
-    this.cart.items.push(new CartItem(food));
-    this.setCartToLocalStorage();
+  private cartItemCountSubject = new BehaviorSubject<number>(0);
+  cartItemCount$ = this.cartItemCountSubject.asObservable();
+
+  constructor() {
+    const cart = localStorage.getItem('cart');
+    if (cart) {
+      const cartItems = JSON.parse(cart);
+      this.cartItemsSubject.next(cartItems);
+      this.cartItemCountSubject.next(this.calculateItemCount(cartItems));
+    }
   }
 
-  removeFromCart(foodId: string): void {
-    this.cart.items = this.cart.items
-      .filter(item => item.food.id != foodId);
-    this.setCartToLocalStorage();
+  addToCart(item: any): void {
+    const currentItems = this.cartItemsSubject.value;
+    const existingItemIndex = currentItems.findIndex((cartItem: any) => cartItem.id === item.id);
+    if (existingItemIndex > -1) {
+      currentItems[existingItemIndex].quantity += 1;
+    } else {
+      item.quantity = 1;
+      currentItems.push(item);
+    }
+
+    this.updateCart(currentItems);
   }
 
-  changeQuantity(foodId: string, quantity: number) {
-    let cartItem = this.cart.items
-      .find(item => item.food.id === foodId);
-    if (!cartItem) return;
-
-    cartItem.quantity = quantity;
-    cartItem.price = quantity * cartItem.food.price;
-    this.setCartToLocalStorage();
+  removeFromCart(item: any): void {
+    let currentItems = this.cartItemsSubject.value;
+    currentItems = currentItems.filter(cartItem => cartItem.id !== item.id);
+    this.updateCart(currentItems);
   }
 
-  clearCart() {
-    this.cart = new Cart();
-    this.setCartToLocalStorage();
+  getCartItems(): any[] {
+    return this.cartItemsSubject.value;
   }
 
-  getCartObservable(): Observable<Cart> {
-    return this.cartSubject.asObservable();
+  private updateCart(cartItems: any[]): void {
+    this.cartItemsSubject.next(cartItems);
+    this.cartItemCountSubject.next(this.calculateItemCount(cartItems));
+    localStorage.setItem('cart', JSON.stringify(cartItems));
   }
 
-  getCart(): Cart{
-    return this.cartSubject.value;
-  }
-
-  private setCartToLocalStorage(): void {
-    this.cart.totalPrice = this.cart.items
-      .reduce((prevSum, currentItem) => prevSum + currentItem.price, 0);
-    this.cart.totalCount = this.cart.items
-      .reduce((prevSum, currentItem) => prevSum + currentItem.quantity, 0);
-
-    const cartJson = JSON.stringify(this.cart);
-    localStorage.setItem('Cart', cartJson);
-    this.cartSubject.next(this.cart);
-  }
-
-  private getCartFromLocalStorage(): Cart {
-    const cartJson = localStorage.getItem('Cart');
-    return cartJson ? JSON.parse(cartJson) : new Cart();
+  private calculateItemCount(cartItems: any[]): number {
+    return cartItems.reduce((count, item) => count + item.quantity, 0);
   }
 }
 

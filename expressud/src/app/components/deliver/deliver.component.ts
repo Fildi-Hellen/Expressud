@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { DriverService } from 'src/app/Services/driver.service';
 
 @Component({
   selector: 'app-deliver',
@@ -7,31 +9,69 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrl: './deliver.component.css'
 })
 export class DeliverComponent {
-  userForm: FormGroup;
+  driverForm!: FormGroup;
+  additionalForm!: FormGroup;
+  message!: string;
 
-  // Define an array of cities
-  cities = ['Juba', 'Yei', 'Wau','Bor'];
+  @ViewChild('detailsModal') detailsModal: any;
 
-  constructor(private formBuilder: FormBuilder) {
-    this.userForm = this.formBuilder.group({
-      fullName: ['', Validators.required],
+  constructor(
+    private fb: FormBuilder,
+    private modalService: NgbModal,
+    private driverService: DriverService
+  ) { }
+
+  ngOnInit(): void {
+    this.driverForm = this.fb.group({
+      name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.required, Validators.pattern('^[0-9]+$')]], // Assuming only digits are allowed
+      password: ['', [Validators.required, Validators.minLength(8)]],
       city: ['', Validators.required],
-      transportation: ['', Validators.required]
+      vehicle:['',Validators.required]
+    });
+
+    this.additionalForm = this.fb.group({
+      driverPermitNo: ['', Validators.required],
+      numberPlate: ['', Validators.required],
+      hasHelmet: [false]
     });
   }
 
-  // Function to handle form submission
-  onSubmit() {
-    if (this.userForm.valid) {
-      // You can perform any necessary actions here, like submitting the form data to a backend server
-      console.log('Form submitted successfully');
-      // Redirect the user to the courier panel (replace 'courier-panel' with the actual route)
-      // this.router.navigate(['/courier-panel']);
+  openDetailsModal(content: any, vehicleType: string) {
+    if (vehicleType === 'MOTORBIKE') {
+      this.additionalForm.get('hasHelmet')?.setValidators(Validators.requiredTrue);
     } else {
-      console.error('Form submission failed. Please check the form fields.');
+      this.additionalForm.get('hasHelmet')?.clearValidators();
+    }
+    this.additionalForm.get('hasHelmet')?.updateValueAndValidity();
+    this.modalService.open(content);
+  }
+
+  closeModal(modal: any) {
+    modal.dismiss('Cross click');
+  }
+
+  saveDetails() {
+    if (this.additionalForm.valid) {
+      this.modalService.dismissAll();
     }
   }
 
+  onSubmit() {
+    if (this.driverForm.valid && this.additionalForm.valid) {
+      const driverData = {
+        ...this.driverForm.value,
+        ...this.additionalForm.value,
+        role: 'driver'
+      };
+      this.driverService.registerDriver(driverData).subscribe(
+        response => {
+          this.message = 'We will get back to you within 5 working days.';
+        },
+        error => {
+          console.error(error);
+        }
+      );
+    }
+  }
 }

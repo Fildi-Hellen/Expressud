@@ -120,8 +120,18 @@
     justify-content: center; /* Align items horizontally */
     align-items: center; /* Align items vertically */
 	
+	
 }
 
 .footer-img div {
     margin: 0 10px; /* Add some spacing between images */
+}
+.footer__logo a img {
+    max-width: 100%; /* Ensure the logo is responsive */
+    height: auto; /* Maintain aspect ratio */
+}
+@media screen and (max-width: 768px) {
+    .footer__logo a img {
+        max-width: 80%; /* Adjust the size of the logo for smaller screens */
+    }
 }

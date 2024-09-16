@@ -6,11 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FeedbackService {
-  private apiUrl = 'http://localhost:8000/api/feedback'; // Adjust URL based on your Laravel backend
+  private apiUrl = 'http://127.0.0.1:8000/api/send-feedback';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  submitFeedback(feedbackData: any): Observable<any> {
+  sendFeedback(feedbackData: { comment: string, rating: number, email: string }): Observable<any> {
     return this.http.post(this.apiUrl, feedbackData);
   }
 

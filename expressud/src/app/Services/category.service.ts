@@ -1,34 +1,40 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { Category } from '../Shared1/models/category';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryService {
 
-  private apiUrl = `${environment.apiUrl}/categories`;
+  private apiUrl ='http://localhost:8000/api';
 
   constructor(private http: HttpClient) {}
 
-  getCategories(): Observable<any> {
-    return this.http.get(this.apiUrl);
+
+  getCategories(): Observable<Category[]> {
+    return this.http.get<Category[]>(this.apiUrl);
   }
 
-  getCategory(id: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}/${id}`);
+  getCategory(id: number): Observable<Category> {
+    return this.http.get<Category>(`${this.apiUrl}/${id}`);
   }
 
-  createCategory(category: any): Observable<any> {
-    return this.http.post(this.apiUrl, category);
+  createCategory(category: Category): Observable<Category> {
+    return this.http.post<Category>(this.apiUrl, category);
   }
 
-  updateCategory(id: number, category: any): Observable<any> {
-    return this.http.put(`${this.apiUrl}/${id}`, category);
+  updateCategory(id: number, category: Category): Observable<Category> {
+    return this.http.put<Category>(`${this.apiUrl}/${id}`, category);
   }
 
-  deleteCategory(id: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/${id}`);
+  deleteCategory(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+
+  getCategoryItems(categoryId: number): Observable<any[]> {
+    // Adjust the URL and return type based on your API and data model
+    return this.http.get<any[]>(`${this.apiUrl}/${categoryId}/items`);
   }
 }

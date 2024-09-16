@@ -1,7 +1,5 @@
-import { Component, ElementRef, HostListener, ViewChild, AfterViewInit, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
-// import {VgApiService} from '@videogular/ngx-videogular/core';
-
 
 @Component({
   selector: 'app-categories',
@@ -42,11 +40,14 @@ export class CategoriesComponent implements OnInit {
     seconds: 0
   };
 
+  private readonly countdownInterval: number = 1000; // Update interval in milliseconds
+  private readonly resetIntervalDays: number = 7; // Reset interval in days
+  private targetDate: Date = this.calculateNextResetDate();
+
   constructor() { }
 
   ngOnInit(): void {
     // Logic to change category based on image (carousel-item)
-    // For simplicity, assuming category changes based on image index
     setInterval(() => {
       this.currentIndex++;
       if (this.currentIndex >= this.images.length) {
@@ -57,16 +58,28 @@ export class CategoriesComponent implements OnInit {
 
     // Update countdown every second
     setInterval(() => {
-      const now = new Date();
-      const eventDate = new Date('2024-05-01'); // Example event date
+      this.updateCountdown();
+    }, this.countdownInterval);
+  }
 
-      const difference = eventDate.getTime() - now.getTime();
+  calculateNextResetDate(): Date {
+    const now = new Date();
+    const nextReset = new Date(now.getTime() + this.resetIntervalDays * 24 * 60 * 60 * 1000);
+    return nextReset;
+  }
 
-      this.countdown.days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      this.countdown.hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      this.countdown.minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      this.countdown.seconds = Math.floor((difference % (1000 * 60)) / 1000);
-    }, 1000); // Update countdown every second
+  updateCountdown(): void {
+    const now = new Date();
+    const difference = this.targetDate.getTime() - now.getTime();
+
+    if (difference <= 0) {
+      this.targetDate = this.calculateNextResetDate();
+    }
+
+    this.countdown.days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    this.countdown.hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    this.countdown.minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    this.countdown.seconds = Math.floor((difference % (1000 * 60)) / 1000);
   }
 
   checkElementVisibility() {
@@ -95,6 +108,4 @@ export class CategoriesComponent implements OnInit {
       rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
   }
-
 }
-

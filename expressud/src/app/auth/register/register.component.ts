@@ -5,9 +5,10 @@ import { AuthService } from 'src/app/Services/auth.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  styleUrls: ['./register.component.css'] 
 })
 export class RegisterComponent {
+  
   registrationData = {
     fullName: '',
     email: '',
@@ -19,17 +20,24 @@ export class RegisterComponent {
 
   register() {
     if (this.registrationData.password !== this.registrationData.confirmPassword) {
-      // Passwords don't match, handle error (e.g., show error message)
+      // Handle password mismatch error (e.g., show error message)
       return;
     }
 
-    this.authService.register(this.registrationData).subscribe(
+    const payload = {
+      fullName: this.registrationData.fullName,
+      email: this.registrationData.email,
+      password: this.registrationData.password,
+      password_confirmation: this.registrationData.confirmPassword
+    };
+
+    this.authService.register(payload).subscribe(
       (res: any) => {
-        // Registration successful, redirect to login page
+        // Redirect to login page after successful registration
         this.router.navigate(['/login']);
       },
       (err: any) => console.error(err)
     );
   }
-
+  
 }

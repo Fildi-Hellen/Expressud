@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-payments',
@@ -6,7 +6,15 @@ import { Component } from '@angular/core';
   styleUrl: './payments.component.css'
 })
 export class PaymentsComponent {
-  selectedPaymentMethod: string = ''; 
-  paymentMethods: string[] = ['Credit Card', 'Debit Card', 'PayPal', 'Bank Transfer','pay with cash'];
+  @Output() paymentMethodSelected = new EventEmitter<string>();
+
+  selectedPaymentMethod: string = '';
+  paymentMethods: string[] = [ 'Pay with Cash'];
+
+  updatePaymentMethod(): void {
+    this.paymentMethodSelected.emit(this.selectedPaymentMethod);
+  }
+
+
 }
 

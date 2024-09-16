@@ -19,6 +19,7 @@ export class AddressComponent  {
     }
   }
 
+  
   successCallback(position: GeolocationPosition): void {
     const latitude: number = position.coords.latitude;
     const longitude: number = position.coords.longitude;
